@@ -1,4 +1,11 @@
 #!/usr/bin/perl 
+
+# put this script in /etc/gmod/, make it executable and add 
+#   /etc/gmod/GMODCallHome.pl
+#   exit 0
+# to /etc/rc.local
+#
+
 use strict;
 use warnings;
 use VM::EC2;
