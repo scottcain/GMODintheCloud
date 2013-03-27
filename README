@@ -1,0 +1,77 @@
+GMOD Annotation Cloud
+December 5, 2011
+Scott Cain
+
+Obviously, if you've made it this far, you've figured out that the user name
+for this machine is 'ubuntu'.  This user as full sudo access without a
+password, though you can set one if you like.
+
+PostgreSQL
+
+The postgres database name is "drupal", and the primary user for that database
+is also called drupal.  See the database connection parameters in
+/var/www/sites/default/settings.php for more information.  There is also
+a postgres account named ubuntu (the same as the login shell user name) that
+has superuser privelges.  This account has its postgres "search_path" set 
+so that it looks in the Chado schema before the public schema, and so this
+account should be used when using tools that are intended to interact with
+Chado (like GBrowse, Apollo and any command line tools from GMOD).
+
+Drupal
+
+Version 6.22 of Drupal was obtained from http://drupal.org/ and installed
+in /var/www, so that when navigating with a web browser to the Apache
+document root (i. e., http://127.0.0.1/ or whatever IP address Amazon
+assigns your machine), you will get the Drupal home page.  The administrative
+account name is "ubuntu" (the same as the shell login name) and the password
+is "gmod".  You should change this as soon as possible!
+
+Tripal
+
+Tripal is installed via an svn checkout at
+
+   /var/www/sites/all/modules/tripal-svn
+
+and can be updated by doing an "svn update", but then using the created
+theme directory to replace the theme directory in /var/www/sites/all/themes/
+but preserving the "tripal" name in the themes directory.
+
+Tripal was used to install the Chado 1.1 schema and load ontologies and
+a GFF file containing yeast genome annotations from SGD, downloaded from
+yeastgenome.org:
+
+  http://downloads.yeastgenome.org/curation/chromosomal_feature/saccharomyces_cerevisiae.gff
+
+GBrowse2
+
+The version of GBrowse2 that is installed on this machine is 2.42, and
+it is installed from a git repository in the home directory (~/GBrowse).
+Updated versions of GBrowse2 can be installed from this directory after
+doing a "git pull" to freshen the directory.  The configuration file for
+the Chado database is /etc/gbrowse2/07.chado.conf.
+
+Minor bug work around: a bug in the Tripal GFF3 loader improperly sets
+featureloc.rank to 1 as the default rather than 0.  This change results in
+GBrowse being unable to see any features.  To fix this, merely execute
+this query:
+
+  UPDATE chado.featureloc SET chado.featureloc.rank = 0
+     WHERE chado.featureloc.rank=1;
+
+JBrowse
+
+The JBrowse version that was installed on this machine is 1.1 installed from
+a zip file obtained from http://jbrowse.org/ and is installed in 
+/var/www/jbrowse, so that navigating to http://your.ip.address/jbrowse
+will give the page.  The configuration file for defining database connection
+parameters and created tracks is in the home directory: ~/jbrowse.conf.
+
+Chado
+
+While Chado schema version 1.1  was installed by Tripal, the Chado software
+package is in the home directory, ~/schema/chado, and was used to update the 
+schema to version 1.23 and to install many utility scripts via the standard
+installation method for Perl modules (perl Makefile.PL, make, sudo make
+install).  This checkout can be updated with "svn update" like the Tripal
+svn checkout.
+
