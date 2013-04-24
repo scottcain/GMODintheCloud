@@ -280,3 +280,139 @@ sudo /etc/init.d/postgresql start
 #also edited /etc/apache2/conf.d/gbrowse2.conf to point to /data directories
 
 
+ $WEB_APOLLO_DIR ~/webapollo/WebApollo-2012-10-08
+    Location where the tarball was uncompressed and will include WebApollo-RELEASE_DATE (e.g., ~/webapollo/WebApollo-2012-10-08) 
+
+$WEB_APOLLO_SAMPLE_DIR ~/webapollo/webapollo_sample
+    Location where the sample tarball was uncompressed (e.g., ~/webapollo/webapollo_sample) 
+
+$WEB_APOLLO_DATA_DIR 
+    Location for WebApollo annotations (e.g., /data/webapollo/annotations) 
+
+$JBROWSE_DATA_DIR
+    Location for JBrowse data (e.g., /data/webapollo/jbrowse/data) 
+
+$TOMCAT_LIB_DIR
+    Location where Tomcat libs are installed (e.g., /usr/share/tomcat7/lib) 
+
+$TOMCAT_CONF_DIR
+    Location where Tomcat configuration is installed (e.g., /etc/tomcat7) 
+
+$TOMCAT_WEBAPPS_DIR
+    Location where deployed servlets for Tomcat go (e.g., /var/lib/tomcat7/webapps) 
+
+
+sudo vi /etc/postgresql/9.1/main/pg_hba.conf
+#local    web_apollo_users    web_apollo_users_admin     md5
+sudo /etc/init.d/postgresql restart
+createuser -P web_apollo_users_admin
+Enter password for new role: web_apollo_users_admin
+Enter it again: 
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) n
+
+createdb -U web_apollo_users_admin web_apollo_users
+
+cd tools/user/
+psql -U web_apollo_users_admin web_apollo_users < user_database_postgresql.sql
+
+./add_user.pl -D web_apollo_users -U web_apollo_users_admin -P web_apollo_users_admin -u web_apollo_admin -p web_apollo_admin
+
+mkdir ~/scratch
+./extract_seqids_from_fasta.pl -p Annotations- -i ~/sources/pyu_data/scf1117875582023.fa -o ~/scratch/seqids.txt
+
+./add_tracks.pl -D web_apollo_users -U web_apollo_users_admin -P web_apollo_users_admin -t ~/scratch/seqids.txt
+
+./set_track_permissions.pl -D web_apollo_users -U web_apollo_users_admin -P web_apollo_users_admin -u web_apollo_admin -t ~/scratch/seqids.txt -a
+
+cd ~/sources/WebApollo/tomcat
+sudo cp custom-valves.jar /var/lib/tomcat7/webapps/
+
+cd /etc/tomcat7
+sudo vi server.xml
+#added <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true" errorReportValveClass="org.bbop.apollo.web.ErrorReportValve"> after last Host entry
+#does it need a </Host>? YES! NO, No no
+# added errorReportValveClass="org.bbop.apollo.web.ErrorReportValve" to existing Host tag
+
+cd /var/lib/tomcat7/webapps/
+sudo mkdir WebApollo
+cd WebApollo
+
+sudo apt-get install default-jdk
+sudo jar -xvf ~/sources/WebApollo/war/WebApollo.war 
+
+#do config as in http://www.gmod.org/wiki/WebApollo_Installation#Configuration
+
+cd /data
+sudo mkdir webapollo
+sudo chown tomcat7:tomcat7 webapollo
+
+cd /data/var/lib/
+mkdir -p tomcat7/webapps/WebApollo/jbrowse/data/
+cd /var/lib/tomcat7/webapps/WebApollo/jbrowse/
+
+cd /var/lib/tomcat7/webapps/WebApollo/config/
+sudo vi config.xml
+#added /data/webapollo/annotations as datastore_directory
+#added jdbc:postgresql://localhost/web_apollo_users for database url
+#added web_apollo_users_admin for both username and password
+#added /var/lib/tomcat7/webapps/WebApollo/jbrowse/data/refSeqs.json for refseqs
+#added Pythium ultimum to organism
+#added sequence:contig to sequence_typ
+
+#added to root's crontab:: 5 * * * *  /home/ubuntu/sources/WebApollo/tools/cleanup/remove_temporary_files.sh -d /var/lib/tomcat7/webapps/WebApollo/tmp -m 60
+
+cd /var/lib/tomcat7/webapps/WebApollo/jbrowse
+sudo chmod 755 bin/*
+sudo cp ~/sources/WebApollo/json/* data
+sudo bin/prepare-refseqs.pl --fasta ~/sources/pyu_data/scf1117875582023.fa 
+mkdir -p ~/sources/pyu_data/split_gff
+~/sources/WebApollo/tools/data/split_gff_by_source.pl -i ~/sources/pyu_data/scf1117875582023.gff -d ~/sources/pyu_data/split_gff/
+
+sudo bin/flatfile-to-json.pl --gff ~/sources/pyu_data/split_gff/maker.gff --arrowheadClass trellis-arrowhead --getSubfeatures --subfeatureClasses '{"wholeCDS": null, "CDS":"brightgreen-80pct", "UTR": "darkgreen-60pct", "exon":"container-100pct"}' --cssClass container-16px --type mRNA --trackLabel maker --webApollo --renderClassName gray-center-20pct
+
+sudo bin/flatfile-to-json.pl --gff ~/sources/pyu_data/split_gff/blastn.gff --arrowheadClass webapollo-arrowhead --getSubfeatures --subfeatureClasses '{"match_part": "darkblue-80pct"}' --cssClass container-10px --trackLabel blastn --webApollo --renderClassName gray-center-20pct
+
+for i in $(ls ~/sources/pyu_data/split_gff/*.gff | grep -v maker);
+do j=$(basename $i); j=${j/.gff/};
+echo "Processing $j" && sudo bin/flatfile-to-json.pl --gff $i --arrowheadClass webapollo-arrowhead \
+--getSubfeatures --subfeatureClasses "{\"match_part\": \"darkblue-80pct\"}" \
+--cssClass container-10px --trackLabel $j \
+--webApollo --renderClassName gray-center-20pct; done
+
+sudo bin/generate-names.pl
+sudo mkdir data/bam
+sudo cp ~/sources/pyu_data/*.bam* data/bam
+sudo bin/add_bam_track.pl --bam_url bam/simulated-sorted.bam --label simulated_bam --key "simulated BAM"
+sudo mkdir data/bigwig
+sudo cp ~/sources/pyu_data/*.bw data/bigwig/
+sudo bin/add_bw_track.pl --bw_url bigwig/simulated-sorted.coverage.bw --label simulated_bw --key "simulated BigWig"
+
+
+sudo mkdir /etc/gmod
+cd /etc/gmod
+sudo cp cp ~/GMODCallHome.pl .
+sudo chmod a+x GMODCallHome.pl 
+cd ..
+sudo vi rc.local
+#add /etc/gmod/GMODCallHome.pl
+sudo rm /etc/motd
+sudo ln -s ~/motd
+#swap out motd for the GMOD in the Cloud message
+
+# moved /var/www/sites/default to /data and replaced with symlink
+
+
+cd ~/sources
+wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=43
+mv download.php\?id\=43 JBrowse-1.9.0.zip
+unzip JBrowse-1.9.0.zip
+cd /var/www
+sudo mkdir jbrowse
+cd jbrowse
+sudo mv ~/sources/JBrowse-1.9.0/* .
+sudo ./setup.sh
+sudo ln -s /data/var/www/jbrowse/data/
+
+
