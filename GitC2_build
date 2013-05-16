@@ -415,4 +415,13 @@ sudo mv ~/sources/JBrowse-1.9.0/* .
 sudo ./setup.sh
 sudo ln -s /data/var/www/jbrowse/data/
 
+#make WebApollo work with schemas other than "public"
+
+cd
+cp /var/lib/tomcat7/webapps/WebApollo/WEB-INF/lib/GBOL.jar .
+jar xvf GBOL.jar 
+cd org/gmod/gbol/simpleObject/io
+perl -pi -e 's/schema="public"//' */*.hbm.xml
+cd /var/lib/tomcat7/webapps/WebApollo/WEB-INF/classes/org
+sudo mv ~/org/gmod/ .
 
