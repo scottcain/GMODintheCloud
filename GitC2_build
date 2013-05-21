@@ -425,3 +425,39 @@ perl -pi -e 's/schema="public"//' */*.hbm.xml
 cd /var/lib/tomcat7/webapps/WebApollo/WEB-INF/classes/org
 sudo mv ~/org/gmod/ .
 
+sudo apt-get install libapache2-mod-fcgid
+sudo service apache2 restart
+
+
+#update webapollo to new version
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-05-16.tgz
+tar zxvf WebApollo-2013-05-16.tgz 
+cd /var/lib/tomcat7/webapps
+sudo mkdir WebApolloStaging
+cd WebApolloStaging/
+sudo jar -xvf ~/sources/WebApollo-2013-05-16/war/WebApollo.war
+
+cd /var/lib/tomcat7/webapps
+#hibernate.xml didn't change at all
+sudo cp WebApollo/config/hibernate.xml WebApolloStaging/config/
+#config.xml changed a little
+sudo cp WebApollo/config/config.xml WebApolloStaging/config/config.xml.old
+cd WebApolloStaging/config/
+sudo vi config.xml.old
+#add lines for rack_name_comparator, use_cds_for_new_transcripts
+#remove lines for track_name_comparator_class
+sudo mv config.xml config.xml.new
+sudo mv config.xml.old config.xml
+
+cd ../jbrowse
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/
+sudo /etc/init.d/tomcat7 restart
+#works!
+
+sudo /etc/init.d/tomcat7 stop
+cd /var/lib/tomcat7/webapps
+sudo mv WebApollo WebApolloOld
+sudo mv WebApolloStaging/ WebApollo
+#still works, but browsers REALLY want to use caches
+
