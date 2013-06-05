@@ -461,3 +461,52 @@ sudo mv WebApollo WebApolloOld
 sudo mv WebApolloStaging/ WebApollo
 #still works, but browsers REALLY want to use caches
 
+#loading pythium data into jbrowse
+#get pythium-1.conf from 2012 GMOD summer school and put in /home/ubuntu
+#change -dir to /home/ubuntu/sources/pyu_data
+cd /data/var/www/jbrowse/data
+mkdir -p json/pythium
+cd json/pythium
+/var/www/jbrowse/bin/prepare-refseqs.pl --gff ~/sources/pyu_data/scf1117875582023.gff
+/var/www/jbrowse/bin/biodb-to-json.pl --conf ~/pythium-1.conf
+cd data
+mv * ..
+mv .htaccess ..
+cd ..
+rmdir data
+
+#mv jbrowse conf file to /data partition
+cd /var/www/jbrowse
+cp jbrowse_conf.json /data/var/www/jbrowse/
+sudo rm jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+
+#install ckeditor
+cd /var/www/sites/all/modules
+wget http://ftp.drupal.org/files/projects/ckeditor-6.x-1.14.tar.gz
+tar zxvf ckeditor-6.x-1.14.tar.gz
+cd ckeditor/
+wget http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.1.1/ckeditor_4.1.1_full.zip
+unzip ckeditor_4.1.1_full.zip
+
+#updated crontab
+#0,15,30,45 * * * *  (cd /var/www;php sites/all/modules/tripal/tripal_core/tripal_launch_jobs.php ubuntu) > /dev/null
+#50 * * * * wget --quiet -O - http://localhost/cron.php > /dev/null
+
+#updated ~/README
+#added ~/DONT_SAVE_HERE
+#modified .bashrc:
+#export GMOD_ROOT=/usr/local/gmod
+#export CHADO_DB_NAME=drupal
+#export CHADO_DB_USERNAME=ubuntu
+#
+#export PATH=$PATH:/opt/bin
+#
+#. ~/dataHome/bashrc
+
+#added empty file ~/dataHome/bashrc
+
+
+wget http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.1.1/ckeditor_4.1.1_full.zip
+
+
