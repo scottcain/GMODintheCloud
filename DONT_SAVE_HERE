@@ -1,0 +1,6 @@
+If you have data that you'd like to save on this machine, do not save it
+in /home/ubuntu, since it will be lost if you terminate this machine or
+move to a newer version of GMOD in the Cloud.  Instead, save it in the EBS
+volume that goes with this machine, at /data/dataHome, linked to in
+/home/ubuntu.
+

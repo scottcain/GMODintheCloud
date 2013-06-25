@@ -1,7 +1,8 @@
+
 Welcome to the GMOD in the Cloud Server!
 
 Unless you set "NoCallHome : 1" in the userdata for this instance,
-when you launched it, the instance sent an registration email.  If you'd 
+when you launched it, the instance sent an registration email.  If you'd
 like to provide us with more useful information, you could remove the
 file /etc/gmod/gitc_lock and modify the userdata to contain these tags:
 
@@ -10,7 +11,8 @@ file /etc/gmod/gitc_lock and modify the userdata to contain these tags:
   organism : the organisms that you plan on using GitC with
 
 If you have questions about GMOD in the Cloud, please ask at the devel
-mailing list, gmod-devel@lists.sourceforge.net.
+mailing list, gmod-devel@lists.sourceforge.net.  If you'd like to get rid
+of this message, empty the file /etc/motd (message of the day).
 
 Thanks and happy computing!
 
