@@ -19,7 +19,7 @@ use constant REGISTRATION_SERVER
 my $instance = VM::EC2->instance_metadata();  # should be a metadata object
 
 my $userdata  = $instance->userData;
-my %userdata =  map {split /\s*\:\s*/, $_ } split "\n", $userdata;
+my %userdata =  map {split /\s*\:\s*/, $_ } split "\n", $userdata if $userdata;
 
 #check to see if this instance all ready called
 exit 0 if (-f "$Bin/gitc_lock");
