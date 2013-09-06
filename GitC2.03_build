@@ -1,0 +1,34 @@
+sudo apt-get update
+sudo apt-get upgrade
+
+#update GBrowse
+cpan
+  install Bio::Graphics
+  install Module::Build
+  install Bio::Graphics::Browser2
+#That's it from updating GBrowse (note that I did have to answer with the
+#correct paths pointing to /data for some items).
+
+#get new version of JBrowse
+cd sources
+wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=67
+mv download.php\?id\=67 JBrowse-1.10.3.zip
+unzip JBrowse-1.10.3.zip
+cd /var/www/jbrowse
+
+#save symbolic link info
+# jbrowse_conf.json -> /data/var/www/jbrowse/jbrowse_conf.json
+# data -> /data/var/www/jbrowse/data/
+sudo  rm -rf *
+sudo mv ~/sources/JBrowse-1.10.3/* .
+sudo rm jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/data/
+sudo ./setup.sh
+#that's it for updating JBrowse!
+
+#Update WebApollo
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-09-04.tgz
+tar zxvf WebApollo-2013-09-04.tgz
+
