@@ -32,3 +32,82 @@ cd ~/sources
 wget https://apollo-web.googlecode.com/files/WebApollo-2013-09-04.tgz
 tar zxvf WebApollo-2013-09-04.tgz
 
+#save old install
+cd /var/lib/tomcat7/webapps/
+cp -r WebApollo ~/webapollo_bak
+sudo rm WebApollo.tar.gz
+sudo rm -rf WebApollo
+sudo mkdir WebApollo
+cd WebApollo
+sudo jar -xvf ~/sources/WebApollo-2013-09-04/war/WebApollo.war
+# update config file:
+cd config
+sudp cp ~/webapollo_bak/config/config.xml .
+#add lines to config file:
+# in <tracks>
+#                <!-- path to file containing translation table.
+#                optional - defaults to NCBI translation table 1 if
+#                absent -->
+#                <translation_table>/config/translation_tables/ncbi_1_translation_table.txt</translation_table>
+#        
+#                <!-- splice acceptor and donor sites. Multiple entries may be
+#                added to allow multiple accepted sites.
+#                optional - defaults to GT for donor and AG for acceptor
+#                if absent -->
+#                <splice_sites>
+#                        <donor_site>GT</donor_site>
+#                        <acceptor_site>AG</acceptor_site>
+#                </splice_sites>
+##after <canned_comments>
+        <!-- configuration for what to display in the annotation info editor.
+        Sections can be commented out to not be displayed or uncommented
+        to make them active -->
+        <annotation_info_editor>
+
+                <!-- display status section.  The text for each <status_flag>
+                element will be displayed as a radio button in the status
+                section, in the same order -->
+                <!--
+                <status>
+                        <status_flag>Approved</status_flag>
+                        <status_flag>Needs review</status_flag>
+                </status>
+                -->
+
+                <!-- display generic attributes section -->                <attributes />
+
+                <!-- display dbxrefs section -->
+                <dbxrefs />
+
+                <!-- display PubMed IDs section -->
+                <pubmed_ids />
+
+                <!-- display GO IDs section -->
+                <go_ids />
+
+                <!-- display comments section -->
+                <comments />
+
+        </annotation_info_editor>
+######
+sudo cp ~/webapollo_bak/config/hibernate.xml .
+sudo /etc/init.d/tomcat7 start
+
+#update jbrowse in webapollo 
+cd /var/lib/tomcat7/webapps/WebApollo/jbrowse
+sudo perl bin/add-webapollo-plugin.pl -i data/trackList.json
+
+
+bin/add-webapollo-plugin.pl -i data/trackList.json
+
+#make WebApollo config user editable, since organism is set here
+cp /data/var/lib/tomcat7/webapps/WebApollo
+sudo mkdir config
+cd config
+sudo mv /var/lib/tomcat7/webapps/WebApollo/config/config.xml .
+cd /var/lib/tomcat7/webapps/WebApollo/config
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/config.xml 
+sudo mv canned_comments.xml /data/var/lib/tomcat7/webapps/WebApollo/config
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/canned_comments.xml 
+
+
