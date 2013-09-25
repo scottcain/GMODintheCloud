@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<canned_comments>
+
+	<!-- one <comment> element per comment.
+	it must contain the attribute "feature_type" that defines
+	the type of feature this comment will apply to.
+	must be be in the form of "CV:term" (e.g., "sequence:gene")
+
+	<comment feature_type="sequence:gene">This is a comment for sequence:gene</comment>
+	-->
+
+</canned_comments>

@@ -101,7 +101,7 @@ sudo perl bin/add-webapollo-plugin.pl -i data/trackList.json
 bin/add-webapollo-plugin.pl -i data/trackList.json
 
 #make WebApollo config user editable, since organism is set here
-cp /data/var/lib/tomcat7/webapps/WebApollo
+cd /data/var/lib/tomcat7/webapps/WebApollo
 sudo mkdir config
 cd config
 sudo mv /var/lib/tomcat7/webapps/WebApollo/config/config.xml .
@@ -110,4 +110,44 @@ sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/config.xml
 sudo mv canned_comments.xml /data/var/lib/tomcat7/webapps/WebApollo/config
 sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/canned_comments.xml 
 
+#add setevn.sh for tomcat to bump memory allocation (as suggested in install doc)
+sudo mkdir -p /data/usr/share/tomcat7/bin
+sudo vi /data/usr/share/tomcat7/bin/setenv.sh
+#add this line to the file:
+#CATALINA_OPTS=-Xms512m -Xmx1g -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC -XX:MaxPermSize=256m
 
+cd /usr/share/tomcat7/bin/
+sudo ln -s /data/usr/share/tomcat7/bin/setenv.sh
+
+
+#apply patch for WebApollo
+cd sources/
+wget http://genomearchitect.org/webapollo/releases/patches/2013-09-04/compression_patch.tgz
+tar zxvf compression_patch.tgz
+cd compression_patch/
+sudo ./apply_patch.sh /var/lib/tomcat7/webapps/WebApollo
+sudo /etc/init.d/tomcat7 restart
+
+#update JBrowse to 1.10.4
+cd /sources
+wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=69
+mv download.php\?id\=69 JBrowse-1.10.4.zip
+unzip JBrowse-1.10.4.zip
+cd /var/www/jbrowse
+ls -l
+#save paths of symlinks:
+#jbrowse_conf.json -> /data/var/www/jbrowse/jbrowse_conf.json
+#data -> /data/var/www/jbrowse/data/
+sudo rm -rf *
+sudo mv ~/sources/JBrowse-1.10.4/* .
+sudo rm jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/data/
+sudo ./setup.sh
+
+#create tool for updating /data partition
+cd /etc/gmod
+sudo vi ROOT_VERSION  #will store GitC version of root partion
+cd /data
+sudo vi DATA_VERSION  #will store GitC version of data partion
+#create update script

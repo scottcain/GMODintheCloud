@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server_configuration>
+
+	<!-- mapping configuration for GBOL data structures -->
+	<gbol_mapping>/config/mapping.xml</gbol_mapping>
+
+	<!-- directory where JE database will be created -->
+	<datastore_directory>/data/webapollo/annotations</datastore_directory>
+
+	<!-- minimum size for introns created -->
+	<default_minimum_intron_size>1</default_minimum_intron_size>
+
+	<!-- size of history for each feature - setting to 0 means unlimited history -->
+	<history_size>0</history_size>
+
+	<!-- overlapping strategy for adding transcripts to genes -->
+	<overlapper_class>org.bbop.apollo.web.overlap.OrfOverlapper</overlapper_class>
+
+	<!-- javascript file for comparing track names (refseqs) (used for sorting in selection table) -->
+	<track_name_comparator>/config/track_name_comparator.js</track_name_comparator>
+
+	<!-- whether to use an existing CDS when creating new transcripts -->
+	<use_cds_for_new_transcripts>true</use_cds_for_new_transcripts>
+
+	<!-- user authentication/permission configuration -->
+	<user>
+
+		<!-- database configuration -->
+		<database>
+
+			<!-- driver for user database -->
+			<driver>org.postgresql.Driver</driver>
+
+			<!-- JDBC URL for user database -->
+			<url>jdbc:postgresql://localhost/web_apollo_users</url>
+
+			<!-- username for user database -->
+			<username>web_apollo_users_admin</username>
+
+			<!-- password for user database -->
+			<password>web_apollo_users_admin</password>
+
+		</database>
+
+		<!-- class for generating user authentication page
+		(login page) -->
+		<authentication_class>org.bbop.apollo.web.user.localdb.LocalDbUserAuthentication</authentication_class>
+
+	</user>
+
+	<tracks>
+
+		<!-- path to JBrowse refSeqs.json file -->
+		<refseqs>/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/refSeqs.json</refseqs>
+
+		<!-- annotation track name the current convention is to append
+		the genomic region id to the the name of the annotation track
+		e.g., if the annotation track is called "Annotations" and the
+		genomic region is chr2L, the track name will be
+		"Annotations-chr2L".-->
+		<annotation_track_name>Annotations</annotation_track_name>
+
+	 	<!-- organism being annotated -->
+		<organism>Pythium ultimum</organism>
+
+		<!-- CV term for the genomic sequences - should be in the form
+		of "CV:term".  This applies to all sequences -->
+		<sequence_type>sequence:contig</sequence_type>
+
+		<!-- path to file containing translation table.
+		optional - defaults to NCBI translation table 1 if
+		absent -->
+		<translation_table>/config/translation_tables/ncbi_1_translation_table.txt</translation_table>
+
+		<!-- splice acceptor and donor sites. Multiple entries may be
+		added to allow multiple accepted sites.
+		optional - defaults to GT for donor and AG for acceptor
+		if absent -->
+		<splice_sites>
+			<donor_site>GT</donor_site>
+			<acceptor_site>AG</acceptor_site>
+		</splice_sites>
+
+	</tracks>
+
+	<!-- path to file containing canned comments XML -->
+	<canned_comments>/config/canned_comments.xml</canned_comments>
+
+	<!-- configuration for what to display in the annotation info editor.
+	Sections can be commented out to not be displayed or uncommented
+	to make them active -->
+	<annotation_info_editor>
+
+		<!-- display status section.  The text for each <status_flag>
+		element will be displayed as a radio button in the status
+		section, in the same order -->
+		<!--
+		<status>
+			<status_flag>Approved</status_flag>
+			<status_flag>Needs review</status_flag>
+		</status>
+		-->
+		
+		<!-- display generic attributes section -->
+		<attributes />
+
+		<!-- display dbxrefs section -->
+		<dbxrefs />
+
+		<!-- display PubMed IDs section -->
+		<pubmed_ids />
+
+		<!-- display GO IDs section -->
+		<go_ids />
+
+		<!-- display comments section -->
+		<comments />
+
+	</annotation_info_editor>
+
+	<!-- tools to be used for sequence searching.  This is optional.
+	If this is not setup, WebApollo will not have sequence search support -->
+	<sequence_search_tools>
+
+		<!-- one <sequence_search_tool> element per tool -->
+		<sequence_search_tool>
+
+			<!-- display name for the search tool -->
+			<key>BLAT nucleotide</key>
+
+			<!-- class for handling search -->
+			<class>org.bbop.apollo.tools.seq.search.blat.BlatCommandLineNucleotideToNucleotide</class>
+
+			<!-- configuration for search tool -->
+			<config>/config/blat_config.xml</config>
+
+		</sequence_search_tool>
+
+		<sequence_search_tool>
+
+			<!-- display name for the search tool -->
+			<key>BLAT protein</key>
+
+			<!-- class for handling search -->
+			<class>org.bbop.apollo.tools.seq.search.blat.BlatCommandLineProteinToNucleotide</class>
+
+			<!-- configuration for search tool -->
+			<config>/config/blat_config.xml</config>
+
+		</sequence_search_tool>
+
+	</sequence_search_tools>
+
+	<!-- data adapters for writing annotation data to different formats.
+	These will be used to dynamically generate data adapters within
+	WebApollo.  This is optional.  -->
+	<data_adapters>
+
+		<!-- one <data_adapter> element per data adapter -->
+		<data_adapter>
+
+			<!-- display name for data adapter -->
+			<key>GFF3</key>
+
+			<!-- class for data adapter plugin -->
+			<class>org.bbop.apollo.web.dataadapter.gff3.Gff3DataAdapter</class>
+
+			<!-- required permission for using data adapter
+			available options are: read, write, publish -->
+			<permission>read</permission>
+
+			<!-- configuration file for data adapter -->
+			<config>/config/gff3_config.xml</config>
+
+			<!-- options to be passed to data adapter -->
+			<options>output=file&amp;format=gzip</options>
+
+		</data_adapter>
+
+		<data_adapter>
+
+			<!-- display name for data adapter -->
+			<key>Chado</key>
+
+			<!-- class for data adapter plugin -->
+			<class>org.bbop.apollo.web.dataadapter.chado.ChadoDataAdapter</class>
+
+			<!-- required permission for using data adapter
+			available options are: read, write, publish -->
+			<permission>publish</permission>
+
+			<!-- configuration file for data adapter -->
+			<config>/config/chado_config.xml</config>
+
+			<!-- options to be passed to data adapter -->
+			<options>display_features=false</options>
+
+		</data_adapter>
+
+	</data_adapters>
+
+</server_configuration>

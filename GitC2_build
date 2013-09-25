@@ -390,9 +390,11 @@ sudo cp ~/sources/pyu_data/*.bw data/bigwig/
 sudo bin/add_bw_track.pl --bw_url bigwig/simulated-sorted.coverage.bw --label simulated_bw --key "simulated BigWig"
 
 
+cpan
+cpan> install VM::EC2
 sudo mkdir /etc/gmod
 cd /etc/gmod
-sudo cp cp ~/GMODCallHome.pl .
+sudo cp ~/GMODCallHome.pl .
 sudo chmod a+x GMODCallHome.pl 
 cd ..
 sudo vi rc.local
