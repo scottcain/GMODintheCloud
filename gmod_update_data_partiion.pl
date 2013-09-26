@@ -69,7 +69,6 @@ sub update0to2_03 {
     print STDERR "Adding WebApollo as a JBrowse plugin\n\n";
     chdir("/var/lib/tomcat7/webapps/WebApollo/jbrowse") or die $!;
     system("perl bin/add-webapollo-plugin.pl -i data/trackList.json");
-    system("/etc/init.d/tomcat7 restart");
 
 
     print STDERR <<END
