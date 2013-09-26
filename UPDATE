@@ -12,7 +12,7 @@ Right click on it and select Create Snapshot.  While not necessary, it's not a
 bad idea to stop the instance unmount the partition before creating the 
 snapshot.  Give it a name that will make it easier to find.
 
-3. In the Snapshot section of the AWS Consule, locate the snapshot you just
+3. In the Snapshot section of the AWS Console, locate the snapshot you just
 created, right click on it and select Create Volume from the menu.  In the 
 resulting image, configure the volume the way you want it to be.  Volume
 type should be Standard; adjust the size of the partition if you want to, and
@@ -33,7 +33,7 @@ the command line.
 6. Type "sudo fdisk -l" to verify that the new drive is attached (but not yet
 mounted), and note the device name (it may differ slightly from what the AWS
 Console says; for example, the console might say sdg, where as the operating
-system may say xvdg).
+system may say xvdg but they both end in "dg" so you know it's the same thing).
 
 7. Shutdown services that depend on data on the /data partition.  Notably, this
 includes apache, postgresql and tomcat7:
@@ -65,3 +65,4 @@ line that has the old device name (like /dev/xvdf) to the new device name
 (like /dev/xvdg).
 
 11. To verify that everything is working correctly, reboot the instance.
+
