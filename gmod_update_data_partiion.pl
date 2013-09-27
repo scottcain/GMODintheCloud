@@ -66,7 +66,7 @@ sub update0to2_03 {
                   $DATA_TOMCAT_BIN) or die $!; 
     }
 
-    print STDERR "Adding WebApollo as a JBrowse plugin\n\n";
+    print STDERR "\nAdding WebApollo as a JBrowse plugin\n\n";
     chdir("/var/lib/tomcat7/webapps/WebApollo/jbrowse") or die $!;
     system("perl bin/add-webapollo-plugin.pl -i data/trackList.json");
 
