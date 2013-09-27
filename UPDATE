@@ -27,8 +27,8 @@ has a recent time created). Right click on the volume, and select Attach Volume.
 Select the new GitC instance from the drop down menu and note the device name
 (it should be something like /dev/sdg).  Click Yes, Attach.
 
-5. Start or restart the new instance of the new version of GitC and log in to
-the command line.
+5. Start or restart (restart may not be necessary) the instance of the
+new version of GitC and log in to the command line.
 
 6. Type "sudo fdisk -l" to verify that the new drive is attached (but not yet
 mounted), and note the device name (it may differ slightly from what the AWS

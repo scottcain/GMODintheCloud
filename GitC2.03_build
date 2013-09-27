@@ -151,3 +151,10 @@ sudo vi ROOT_VERSION  #will store GitC version of root partion
 cd /data
 sudo vi DATA_VERSION  #will store GitC version of data partion
 #create update script
+
+#create gmod_update_data_partition.pl
+
+cpan
+cpan> install XML::Merge
+
+
