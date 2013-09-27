@@ -21,7 +21,7 @@ sub update_needed {
     }
 
     if (-f "/data/DATA_VERSION") {
-        $data_version = `cat /data/version`;
+        $data_version = `cat /data/DATA_VERSION`;
     }
 
     if ($data_version >= $root_version) {
@@ -70,6 +70,9 @@ sub update0to2_03 {
     chdir("/var/lib/tomcat7/webapps/WebApollo/jbrowse") or die $!;
     system("perl bin/add-webapollo-plugin.pl -i data/trackList.json");
 
+    open (VERS, '>', '/data/DATA_VERSION') or die $!;
+    print VERS "2.03\n";
+    close VERS;
 
     print STDERR <<END
 
