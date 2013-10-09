@@ -52,17 +52,17 @@ Verify that the drive was correctly mounted by doing "ls /data".
 9. Run the update script:  sudo ~/GMODintheCloud/gmod_update_data_partiion.pl. 
 This will add any files that the new version of GitC requires.
 
-9. Restart the services stopped above:
+10. Restart the services stopped above:
 
   sudo /etc/init.d/apache2 start 
   sudo /etc/init.d/postgresql start
   sudo /etc/init.d/tomcat7 start
 
-10. After verifying that the services (GBrowse, JBrowse, WebApollo and Tripal) 
+11. After verifying that the services (GBrowse, JBrowse, WebApollo and Tripal) 
 are working correctly, edit /etc/fstab to make sure the new partition mounts
 at the /data mount point when the machine reboots.  Do this by changing the 
 line that has the old device name (like /dev/xvdf) to the new device name
 (like /dev/xvdg).
 
-11. To verify that everything is working correctly, reboot the instance.
+12. To verify that everything is working correctly, reboot the instance.
 
