@@ -1,0 +1,204 @@
+#make a copy of the data partition on cloud.gmod.org:
+cd /mnt
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/tomcat7 stop
+sudo /etc/init.d/postgresql stop
+sudo sudo tar jcvf data.tar.bz2 /data/
+[sudo] password for ubuntu: 
+sudo /etc/init.d/apache2 start
+sudo /etc/init.d/tomcat7 start
+sudo /etc/init.d/postgresql start
+
+#then on the local machine
+scp -i ~/.ssh/scottcainkey.pem ubuntu@cloud.gmod.org:/mnt/data.tar.bz2 .
+
+#create a 64 bit 12.04 ubuntu server in virtualbox
+#username: ubuntu, password: ubuntu
+#set network to bridged
+#log into VM
+ifconfig
+#to get ipaddress of machine
+#in host machine:
+ssh ubuntu@192.168.1.19
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install libbio-samtools-perl amap-align apache2 apache2-mpm-worker apache2-utils apache2.2-bin apache2.2-common bedtools bioperl bioperl-run blast2 bowtie bwa cmap-adobe-japan1 dialign emboss emboss-data emboss-lib exonerate fontconfig fontconfig-config fonts-liberation ghostscript graphviz gs-cjk-resource gsfonts hmmer infernal javascript-common kalign libace-perl libalgorithm-c3-perl libalgorithm-munkres-perl libapache-dbi-perl libapache2-mod-perl2 libapache2-reload-perl libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libarray-compare-perl libavahi-client3 libavahi-common-data libavahi-common3 libb-hooks-endofscope-perl libbio-asn1-entrezgene-perl libbio-graphics-perl libbio-perl-perl libbio-perl-run-perl libbio-scf-perl libbit-vector-perl libbsd-resource-perl libcache-cache-perl libcairo2 libcap2 libcarp-clan-perl libcdt4 libcgi-session-perl libcgraph5 libclass-c3-perl libclass-c3-xs-perl libclass-inspector-perl libclass-load-perl libclass-load-xs-perl libclone-perl libcommon-sense-perl libconvert-binary-c-perl libconvert-binhex-perl libcrypt-ssleay-perl libcups2 libcupsimage2 libdata-optlist-perl libdata-stag-perl libdate-calc-perl libdate-calc-xs-perl libdate-manip-perl libdatrie1 libdbd-mysql-perl libdbd-pg-perl libdbd-sqlite3-perl libdbi-perl libdevel-globaldestruction-perl libdevel-partialdump-perl libdevel-symdump-perl liberror-perl libeval-closure-perl libfcgi-perl libfontconfig1 libfreezethaw-perl libgd-gd2-perl libgd-svg-perl libgd2-xpm libgraph-perl libgraph4 libgraphviz-perl libgs9 libgs9-common libgvc5 libgvpr1 libheap-perl libhpdf-2.2.1 libice6 libijs-0.35 libio-pty-perl libio-stringy-perl libipc-run-perl libipc-sharelite-perl libjasper1 libjbig2dec0 libjcode-pm-perl libjpeg-turbo8 libjpeg8 libjs-prototype libjs-scriptaculous libjson-perl libjson-xs-perl liblcms2-2 liblist-moreutils-perl libmath-derivative-perl libmath-spline-perl libmime-tools-perl libmldbm-perl libmodule-runtime-perl libmoose-perl libmro-compat-perl libmysqlclient18 libnamespace-clean-perl libncbi6 libnet-daemon-perl libole-storage-lite-perl libossp-uuid-perl libossp-uuid16 libpackage-deprecationmanager-perl libpackage-stash-perl libpackage-stash-xs-perl libpango1.0-0 libpaper-utils libpaper1 libparams-classify-perl libparams-util-perl libparse-recdescent-perl libpathplan4 libperl5.14 libpixman-1-0 libplrpc-perl libpostscript-perl libpq5 libreadline5 libruby1.8 libset-scalar-perl libsm6 libsoap-lite-perl libsort-naturally-perl libspreadsheet-parseexcel-perl libspreadsheet-writeexcel-perl libstaden-read1 libstatistics-descriptive-perl libsub-exporter-perl libsub-identify-perl libsub-install-perl libsvg-graph-perl libsvg-perl libtask-weaken-perl libterm-readkey-perl libthai-data libthai0 libtie-ixhash-perl libtiff4 libtree-dagnode-perl libtry-tiny-perl libunicode-map-perl libvariable-magic-perl libxaw7 libxcb-render0 libxcb-shm0 libxft2 libxml-dom-perl libxml-dom-xpath-perl libxml-filter-buffertext-perl libxml-libxml-perl libxml-libxslt-perl libxml-perl libxml-regexp-perl libxml-sax-writer-perl libxml-twig-perl libxml-writer-perl libxml-xpath-perl libxml-xpathengine-perl libxmu6 libxpm4 libxrender1 libxslt1.1 libxt6 libyaml-perl libyaml-syck-perl lynx lynx-cur mafft maq muscle mysql-common ncbi-data perl-doc perl-tk phyml primer3 probcons ruby ruby1.8 samtools sim4 sqlite3 ssl-cert t-coffee tigr-glimmer ttf-dejavu-core ttf-liberation wise wwwconfig-common x11-common
+sudo apt-get install libnet-openid-consumer-perl libnet-smtp-ssl-perl make
+sudo apt-get install libbio-chado-schema-perl
+sudo apt-get install postgresql postgresql-client postgresql-plperl-9.1 postgis
+
+sudo su - postgres
+createuser ubuntu
+Shall the new role be a superuser? (y/n) y
+
+vi /etc/postgresql/9.1/main/pg_hba.conf
+----------------------------------
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                peer
+#host    replication     postgres        127.0.0.1/32            md5
+#host    replication     postgres        ::1/128                 md5
+-------------------------------------
+
+exit #out of postgres user
+
+sudo /etc/init.d/postgresql restart
+
+sudo apt-get install xsltproc
+sudo apt-get install libgo-perl
+sudo apt-get install libdbix-dbschema-perl
+sudo apt-get install libdbix-dbstag-perl
+
+vi ~/.bashrc
+----------------------
+export GMOD_ROOT=/usr/local/gmod
+export CHADO_DB_NAME=drupal
+----------------------
+. ~/.bashrc
+
+cpan
+cpan>install Bio::Graphics
+cpan>install Parse::Apache::ServerStatus
+cpan>quit
+
+sudo apt-get install unzip libpng-dev libssl-dev
+
+
+mkdir sources
+cd sources
+wget http://hgdownload.cse.ucsc.edu/admin/jksrc.zip
+unzip jksrc.zip
+cd kent/src/lib/
+export    MACHTYPE=i686
+
+make  #after adding CFLAGS=-fPIC to kent/src/inc/common.mk
+#wait a long time...
+export KENT_SRC=/home/ubuntu/sources/kent/src
+cpan
+
+cpan> install Bio::DB::BigFile
+
+sudo apt-get install php5 php5-pgsql php5-gd git
+sudo a2enmod rewrite
+sudo /etc/init.d/apache2 restart
+
+cd ~/sources
+wget http://ftp.drupal.org/files/projects/drupal-6.28.tar.gz
+tar zxvf drupal-6.28.tar.gz
+sudo mv drupal-6.28/* drupal-6.28/.htaccess /var/www/
+cd /var/www
+sudo cp sites/default/default.settings.php sites/default/settings.php
+sudo chmod o+w sites/default/settings.php
+chmod o+w sites/default
+
+sudo su - postgres
+createuser --pwprompt --encrypted --no-adduser --no-createdb drupal
+#password=drupal
+createdb --encoding=UNICODE --owner=drupal drupal
+
+#do drupal config by browsing to domain
+
+chmod a-w sites/default/settings.php
+chmod a-w sites/default
+
+#changed AllowOverride for /var/www in /etc/apache2/sites-availalble/default from None to All
+#added index.html to /var/www/.htaccess DirectoryIndex setting
+
+
+#create /data directory now.
+#created a vdi 5GB partion
+sudo fdisk /dev/sdb
+n
+p
+1
+2048
+11025023
+w
+
+sudo mkfs -t ext4 /dev/sdb1
+sudo vi /etc/fstab
+#add:
+#/dev/sdb1       /data   ext4    rw        0       2
+
+#copy the data tarball from GMOD in the Cloud into this machine
+sudo mv data.tar.bz2 /
+cd /
+sudo tar jxvf data.tar.bz2
+sudo rm data.tar.bz2
+
+#get postgres configured
+sudo /etc/init.d/postgresql stop
+sudo su
+cd /var/lib/postgresql/9.1/
+rm -rf main/
+ln -s /data/var/lib/postgresql/9.1/main/
+cd /etc/postgresql/9.1/
+rm -rf main
+ln -s /data/etc/postgresql/9.1/main/
+/etc/init.d/postgresql start
+exit #root shell
+
+#configure drupal/tripal
+#get /var/www/sites/all from cloud.gmod.org (all.tar.gz)
+cd
+sudo mv all.tar.gz /var/www/sites/
+cd /var/www/sites
+tar zxvf all.tar.gz
+rm all.tar.gz
+sudo rm -rf default/
+sudo ln -s /data/var/www/sites/default/
+cd /var/www
+sudo rm -rf .htaccess
+sudo ln -s /data/var/www/.htaccess
+sudo /etc/init.d/apache restart
+
+#log into tripal/drupal site, change the password back to the default "gmod"
+
+#install GBrowse
+cpan
+cpan>install Bio::Graphics::Browser2
+cpan>install Bio::DB::Das::Chado
+
+sudo a2dismod perl
+sudo a2enmod fcgid
+sudo service apache2 restart
+
+#install webapollo--get a tarball of tomcat directory from cloud.gmod.org
+sudo apt-get install subversion  tomcat7 ant
+cd 
+sudo mv WebApollo.tar.gz /var/lib/tomcat7/webapps/
+cd /var/lib/tomcat7/webapps/
+sudo tar zxvf WebApollo.tar.gz
+
+#get the webapollo release tarball to get the custom error jar
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-09-04.tgz
+tar zxvf WebApollo-2013-09-04.tgz
+cd /usr/share/tomcat7/bin
+sudo ln -s /data/usr/share/tomcat7/bin/setenv.sh
+cd ../lib
+sudo cp ~/sources/WebApollo-2013-09-04/tomcat/custom-valves.jar .
+sudo /etc/init.d/tomcat7 restart
+
+#get new version of jbrowse
+cd ~/sources
+wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=73
+mv download.php\?id=73 JBrowse-1.0.6.zip
+unzip JBrowse-1.10.6.zip
+cd /var/www
+sudo mkdir jbrowse
+cd jbrowse
+sudo mv ~/sources/JBrowse-1.10.6/* .
+sudo ./setup.sh
+#this installed several perl modules
+sudo rm -rf jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/data/
