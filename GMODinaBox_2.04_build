@@ -202,3 +202,33 @@ sudo ./setup.sh
 sudo rm -rf jbrowse_conf.json
 sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
 sudo ln -s /data/var/www/jbrowse/data/
+
+#release prep
+cd
+git clone https://github.com/scottcain/GMODintheCloud.git
+ln -s /data/dataHome/
+vi DONT_SAVE_HERE
+ln -s GMODintheCloud/jbrowse.conf
+ln -s GMODintheCloud/pythium-1.conf 
+ln -s GMODintheCloud/README
+vi .bashrc
+#add to the end:
+#export CHADO_DB_USERNAME=ubuntu
+#export PATH=$PATH:/data/opt/bin
+#. ~/dataHome/bashrc
+
+#configure calling home and motd
+cd /etc
+sudo mkdir gmod
+cd gmod
+#update /etc/gmod/ROOT_VERSION and /data/DATA_VERSION to 2.04
+
+#rework call home script
+sudo apt-get install libio-prompter-perl libnet-address-ip-local-perl
+
+cd
+vi .bashrc
+# add "perl ~/GMODintheCloud/GMODCallHomefromBox.pl" to the end
+
+
+
