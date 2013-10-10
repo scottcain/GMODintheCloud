@@ -207,7 +207,7 @@ sudo ln -s /data/var/www/jbrowse/data/
 cd
 git clone https://github.com/scottcain/GMODintheCloud.git
 ln -s /data/dataHome/
-vi DONT_SAVE_HERE
+ln -s GMODintheCloud/DONT_SAVE_HERE
 ln -s GMODintheCloud/jbrowse.conf
 ln -s GMODintheCloud/pythium-1.conf 
 ln -s GMODintheCloud/README
