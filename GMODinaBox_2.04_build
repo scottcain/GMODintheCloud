@@ -230,5 +230,10 @@ cd
 vi .bashrc
 # add "perl ~/GMODintheCloud/GMODCallHomefromBox.pl" to the end
 
+cd /etc
+sudo mv motd motd.old
+sudo cp ~/GMODintheCloud/motd_box motd
+
+rm ~/GMODintheCloud/gitc_lock
 
 
