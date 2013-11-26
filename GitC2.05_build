@@ -36,3 +36,21 @@ sudo rm jbrowse_conf.json
 sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
 sudo ln -s /data/var/www/jbrowse/data/
 
+
+#Update WebApollo
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-11-22.tgz
+tar zxvf WebApollo-2013-11-22.tgz
+
+#save old install
+cd /var/lib/tomcat7/webapps/
+cp -r WebApollo ~/webapollo_bak
+sudo rm -rf WebApollo
+sudo mkdir WebApollo
+cd WebApollo
+sudo jar -xvf ~/sources/WebApollo-2013-11-22/war/WebApollo.war
+
+
+
+
+# move gff_config.xml to /data
