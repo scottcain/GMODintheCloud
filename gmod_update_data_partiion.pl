@@ -6,12 +6,21 @@ use FindBin qw($Bin);
 use File::Path qw(make_path);
 use File::Copy;
 
+#webapollo directories that we'll use
+my $LOCAL_FILES            = $Bin . '/update_data/data/';
+my $LOCAL_WEBAPOLLO_CONFIG = $LOCAL_FILES . 'var/lib/tomcat7/webapps/WebApollo/config/';
+my $DATA_WEBAPOLLO_CONFIG  = '/data/var/lib/tomcat7/webapps/WebApollo/config/';
+my $LOCAL_TOMCAT_BIN       = $LOCAL_FILES . 'usr/share/tomcat7/bin/';
+my $DATA_TOMCAT_BIN        ='/data/usr/share/tomcat7/bin/';
+
 my $root_version = 0;
 my $data_version = 0;
 
 exit 0 unless (update_needed()) ;
 
-update0to2_03();
+update0to2_03() if $data_version < 2.03;
+
+update2_03to2_05() if $data_version < 2.05;
 
 exit 0;
 
@@ -32,11 +41,6 @@ sub update_needed {
 }
 
 sub update0to2_03 {
-    my $LOCAL_FILES            = $Bin . '/update_data/data/';
-    my $LOCAL_WEBAPOLLO_CONFIG = $LOCAL_FILES . 'var/lib/tomcat7/webapps/WebApollo/config/';
-    my $DATA_WEBAPOLLO_CONFIG  = '/data/var/lib/tomcat7/webapps/WebApollo/config/'; 
-    my $LOCAL_TOMCAT_BIN       = $LOCAL_FILES . 'usr/share/tomcat7/bin/';
-    my $DATA_TOMCAT_BIN        ='/data/usr/share/tomcat7/bin/';
 
     unless (-d $DATA_WEBAPOLLO_CONFIG) {
         print STDERR "Making $DATA_WEBAPOLLO_CONFIG\n";
@@ -92,4 +96,34 @@ WebApollo config.xml file.
 END
 ;
 }
+
+sub update2_03to2_05 {
+
+    unless (-f $DATA_WEBAPOLLO_CONFIG . 'gff3_config.xml') {
+        print STDERR "Copying $LOCAL_WEBAPOLLO_CONFIG" . "gff3_config.xml\n";
+        copy     ($LOCAL_WEBAPOLLO_CONFIG . 'gff3_config.xml',
+                  $DATA_WEBAPOLLO_CONFIG) or die $!;
+    }
+
+#update config.xml (joy)
+
+
+
+    print STDERR <<END
+
+IMPORTANT: This version of GMOD in the Cloud moved the these files to the
+/data partition:  
+
+    /var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml
+
+If you modified any of these files in your previous instance of GMOD in
+the Cloud, please obtain those files from the old instance and carefully
+merge them into their counterparts on the /data partition.  DO NOT just
+replace them, as there are new configuration items.
+
+END
+;
+
+}
+
 
