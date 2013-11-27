@@ -3,14 +3,25 @@ sudo apt-get upgrade
 
 sudo vi /data/etc/gbrowse2/pythium.conf
 #add sub for gene link:
-#link         = sub {
-#     my $f = shift;
-#     my $organism = $f->organism();
-#     my ($genus,$species) = split / /,$organism;
-#     my $uniquename = $f->uniquename();
-#     my $link = "/".lc($genus)."/".lc($genus)."_".lc($species)."/$uniquename";
-#     return $link;
+#link     = sub {
+#                  my $f = shift;
+#                  my ($owner) = $f->attributes("owner");
+#                  my $uniquename = $f->uniquename();
+#                  if (defined $owner) {
+#                       #send webapollo genes to the gbrowse_details page
+#                        my $fid   = $f->feature_id;
+#                        my $ref   = $f->ref;
+#                        my $start = $f->start;
+#                        my $end   = $f->end;
+#                        return "/fgb2/gbrowse_details/pythium?ref=$ref;start=$start;end=$end;name=$uniquename;class=Sequence;feature_id=$fid;db_id=main%3Adatabase";
+#                  }
+#                  my $organism = $f->organism();
+#                  my ($genus,$species) = split / /,$organism;
+#              #otherwise, send them to Tripal
+#                  my $link = "/".lc($genus)."/".lc($genus)."_".lc($species)."/$uniquename";
+#                  return $link;
 #    }
+
 
 sudo vi /data/var/www/jbrowse/data/json/pythium/trackList.json
 #add config for linking to tripal:
@@ -49,8 +60,118 @@ sudo rm -rf WebApollo
 sudo mkdir WebApollo
 cd WebApollo
 sudo jar -xvf ~/sources/WebApollo-2013-11-22/war/WebApollo.war
+cd config
+sudo cp config.xml config.xml.new
+sudo cp ~/webapollo_bak/config/config.xml .
+sudo vi config.xml
+#add lines to config:
+#        <!-- set to false to use hybrid disk/memory store which provides a little slower performance
+#        but uses a lot less memory - great for annotation rich genomes -->
+#        <use_pure_memory_store>true</use_pure_memory_store>
+#before user authentication section
+#
+#                <!-- grouping for the configuration.  The "feature_types" attribute takes a list of
+#                SO terms (comma separated) to apply this configuration to
+#                (e.g., feature_types="sequence:transcript,sequence:mRNA" will make it so the group
+#                configuration will only apply to features of type "sequence:transcript" or "sequence:mRNA").
+#                A value of "default" will make this the default configuration for any types not explicitly
+#                defined in other groups.  You can have any many groups as you'd like -->
+#                <annotation_info_editor_group feature_types="default">
+# at top of annotation_info_editor section
+#
+#         </annotation_info_editor_group>
+#before closing annotation_info_editor section
+#and this long section at the end of the data_adaptors section
+                <!-- group the <data_adapter> children elements together -->
+                <data_adapter_group>
 
+                        <!-- display name for adapter group -->
+                        <key>FASTA</key>
 
+                        <!-- required permission for using data adapter group
+                        available options are: read, write, publish -->
+                        <permission>read</permission>
 
+                        <!-- one child <data_adapter> for each data adapter in the group -->
+                        <data_adapter>
 
-# move gff_config.xml to /data
+                                <!-- display name for data adapter -->
+                                <key>peptide</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=peptide</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>cDNA</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cdna</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>CDS</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cds</options>
+
+                        </data_adapter>
+
+                </data_adapter_group>
+#
+#
+sudo mv config.xml /data/var/lib/tomcat7/webapps/WebApollo/config/config.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/config.xml
+sudo mv gff3_config.xml /data/var/lib/tomcat7/webapps/WebApollo/config
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml
+sudo mv canned_comments.xml /data/var/lib/tomcat7/webapps/WebApollo/config/canned_comments.xml
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/canned_comments.xml 
+sudo rm config.xml.new 
+sudo cp ~/webapollo_bak/config/hibernate.xml .
+
+cd ../jbrowse
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data
+sudo /etc/init.d/tomcat restart
+
+cd /etc/gmod
+sudo vi ROOT_VERSION
+#bump version to 2.05
+cd /data
+sudo vi DATA_VERSION
+#bump version to 2.05
+
+#create new update script
