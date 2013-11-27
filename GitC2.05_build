@@ -1,0 +1,56 @@
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo vi /data/etc/gbrowse2/pythium.conf
+#add sub for gene link:
+#link         = sub {
+#     my $f = shift;
+#     my $organism = $f->organism();
+#     my ($genus,$species) = split / /,$organism;
+#     my $uniquename = $f->uniquename();
+#     my $link = "/".lc($genus)."/".lc($genus)."_".lc($species)."/$uniquename";
+#     return $link;
+#    }
+
+sudo vi /data/var/www/jbrowse/data/json/pythium/trackList.json
+#add config for linking to tripal:
+#"onClick" : {"action":"newWindow","url":"/pythium/pythium_ultimum/{name}"},
+#added to Gene track config
+
+
+#update JBrowse to 1.10.10
+cd ~/sources
+ wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=81
+mv download.php\?id\=81 JBrowse-1.10.10.zip
+unzip JBrowse-1.10.10.zip
+cd /var/www/jbrowse
+
+#save symbolic link info
+# jbrowse_conf.json -> /data/var/www/jbrowse/jbrowse_conf.json
+# data -> /data/var/www/jbrowse/data/
+sudo  rm -rf *
+sudo mv ~/sources/JBrowse-1.10.10/* .
+sudo ./setup.sh
+
+sudo rm jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/data/
+
+
+#Update WebApollo
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-11-22.tgz
+tar zxvf WebApollo-2013-11-22.tgz
+
+#save old install
+cd /var/lib/tomcat7/webapps/
+cp -r WebApollo ~/webapollo_bak
+sudo rm -rf WebApollo
+sudo mkdir WebApollo
+cd WebApollo
+sudo jar -xvf ~/sources/WebApollo-2013-11-22/war/WebApollo.war
+
+
+
+
+# move gff_config.xml to /data
