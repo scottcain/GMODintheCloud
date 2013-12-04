@@ -108,10 +108,14 @@ sub update2_03to2_05 {
 
 #update config.xml (joy)
 ###first test that it needs updating!
-    my ($newconfigfh, $newconfig) = tempfile();
     my $configfile = $DATA_WEBAPOLLO_CONFIG . 'config.xml';
+
+    my @result = `grep use_pure_memory_store $configfile`;
+    my $needsupdating = @result > 0 ? 0 : 1; # if the text is present, no need to update
+
+    my ($newconfigfh, $newconfig) = tempfile();
     open (my $fh,"<",$configfile) or die "couldn't open $configfile for reading";
-    while (<$fh>) {
+    while ($needsupdating and $_ = <$fh> ) {
         if (/use_cds_for_new_transcripts/) {
             print $newconfigfh $_;
             print $newconfigfh <<FIRST
@@ -236,6 +240,10 @@ FOURTH
     copy ($configfile, "$configfile.old") or die $!;
     copy ($newconfig,  $configfile)       or die $!;
 
+    open (VERS, '>', '/data/DATA_VERSION') or die $!;
+    print VERS "2.05\n";
+    close VERS;
+
     print STDERR <<END
 
 IMPORTANT: This version of GMOD in the Cloud moved the these files to the
@@ -247,6 +255,10 @@ If you modified any of these files in your previous instance of GMOD in
 the Cloud, please obtain those files from the old instance and carefully
 merge them into their counterparts on the /data partition.  DO NOT just
 replace them, as there are new configuration items.
+
+The script also attempted an in place edit of the WebApollo config file,
+$configfile, and placed the old copy in
+$configfile.old.
 
 END
 ;
