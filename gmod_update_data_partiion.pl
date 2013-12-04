@@ -5,6 +5,7 @@ use warnings;
 use FindBin qw($Bin);
 use File::Path qw(make_path);
 use File::Copy;
+use File::Temp qw(tempfile);;
 
 #webapollo directories that we'll use
 my $LOCAL_FILES            = $Bin . '/update_data/data/';
@@ -106,8 +107,134 @@ sub update2_03to2_05 {
     }
 
 #update config.xml (joy)
+###first test that it needs updating!
+    my ($newconfigfh, $newconfig) = tempfile();
+    my $configfile = $DATA_WEBAPOLLO_CONFIG . 'config.xml';
+    open (my $fh,"<",$configfile) or die "couldn't open $configfile for reading";
+    while (<$fh>) {
+        if (/use_cds_for_new_transcripts/) {
+            print $newconfigfh $_;
+            print $newconfigfh <<FIRST
 
+        <!-- set to false to use hybrid disk/memory store which provides a little slower performance
+        but uses a lot less memory - great for annotation rich genomes -->
+        <use_pure_memory_store>true</use_pure_memory_store>
 
+FIRST
+;
+        }
+        elsif (/\<annotation_info_editor\>/) {
+            print $newconfigfh $_;
+            print $newconfigfh <<SECOND
+
+                <!-- grouping for the configuration.  The "feature_types" attribute takes a list of
+                SO terms (comma separated) to apply this configuration to
+                (e.g., feature_types="sequence:transcript,sequence:mRNA" will make it so the group
+                configuration will only apply to features of type "sequence:transcript" or "sequence:mRNA").
+                A value of "default" will make this the default configuration for any types not explicitly
+                defined in other groups.  You can have any many groups as you'd like -->
+                <annotation_info_editor_group feature_types="default">
+
+SECOND
+;
+        }
+        elsif(/\<\/annotation_info_editor\>/) {
+            print $newconfigfh <<THIRD
+
+             </annotation_info_editor_group>
+THIRD
+;
+            print $newconfigfh $_;
+        } 
+        elsif(/\<\/data_adapters\>/) {
+            print $newconfigfh <<FOURTH
+
+                <!-- group the <data_adapter> children elements together -->
+                <data_adapter_group>
+
+                        <!-- display name for adapter group -->
+                        <key>FASTA</key>
+
+                        <!-- required permission for using data adapter group
+                        available options are: read, write, publish -->
+                        <permission>read</permission>
+
+                        <!-- one child <data_adapter> for each data adapter in the group -->
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>peptide</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=peptide</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>cDNA</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cdna</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>CDS</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cds</options>
+
+                        </data_adapter>
+
+                </data_adapter_group>
+
+FOURTH
+;
+            print $newconfigfh $_;
+        }
+        else {
+            print $newconfigfh $_;
+        }
+
+    } #close the file looping while
+
+    close $fh;
+    close $newconfigfh;
+
+    copy ($configfile, "$configfile.old") or die $!;
+    copy ($newconfig,  $configfile)       or die $!;
 
     print STDERR <<END
 
