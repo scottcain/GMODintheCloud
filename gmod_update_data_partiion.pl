@@ -237,8 +237,10 @@ FOURTH
     close $fh;
     close $newconfigfh;
 
-    copy ($configfile, "$configfile.old") or die $!;
-    copy ($newconfig,  $configfile)       or die $!;
+    if ($needsupdating) {
+        copy ($configfile, "$configfile.old") or die $!;
+        copy ($newconfig,  $configfile)       or die $!;
+    }
 
     open (VERS, '>', '/data/DATA_VERSION') or die $!;
     print VERS "2.05\n";
