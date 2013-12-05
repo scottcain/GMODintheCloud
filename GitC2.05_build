@@ -175,3 +175,63 @@ sudo vi DATA_VERSION
 #bump version to 2.05
 
 #create new update script
+
+###Notes from work Ed did
+### blat setup
+
+cd ~/sources/kent/src/jkOwnLib
+MACHTYPE=x86_64 make
+
+cd ~/sources/kent/src/lib
+MACHTYPE=x86_64 make
+
+mkdir -p ~/bin/x86_64
+
+cd ~/sources/kent/src/blat
+MACHTYPE=x86_64 make
+
+cd ~/sources/kent/src/utils/faToTwoBit
+sudo mv ~/bin/x86_64/* /usr/local/bin
+
+sudo mkdir -p /data/webapollo/blat/{db,tmp}
+sudo chown -R tomcat7:tomcat7 /data/webapollo/blat
+
+cd /data/var/lib/tomcat7/webapps/WebApollo/config
+sudo mv /var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml .
+## configured blat_config.xml
+cd /var/lib/tomcat7/webapps/WebApollo/config
+sudo ln -sf /data/var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml
+
+### apache proxy for port WebApollo
+
+## activate proxy
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+
+## create /etc/apache2/sites-available/webapollo
+cd /etc/apache2/sites-enabled
+sudo a2ensite webapollo
+
+### setup script
+mkdir -p scratch/split_gff
+## put setup_webapollo.sh in /usr/local/bin
+cd sources
+## create a current symlink for latest release
+ln -sf WebApollo-2013-11-22 WebApollo-current
+
+### WebApollo setup
+sudo chmod 755 /var/lib/tomcat7/webapps/WebApollo/jbrowse/bin/*
+
+cd /var/lib/tomcat7/webapps/WebApollo/jbrowse
+sudo ln -sf /var/www/jbrowse/extlib
+
+cd /var/lib/tomcat7/webapps/WebApollo/config
+sudo mv fasta_config.xml /data/var/lib/tomcat7/webapps/WebApollo/config/
+sudo ln -sf /data/var/lib/tomcat7/webapps/WebApollo/config/fasta_config.xml
+
+cd /var/lib/tomcat7/webapps/WebApollo
+sudo mkdir tmp
+sudo chown tomcat7:tomcat7 tmp
+
+## update /data/var/lib/tomcat7/webapollo/WebApollo/config/config.xml:
+## <refseqs>/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/seq/refSeqs.json</refseqs>
