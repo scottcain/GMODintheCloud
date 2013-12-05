@@ -119,6 +119,7 @@ sub update2_03to2_05 {
     }
 
     update2_05WebApollo_config();
+    update2_05WebApollo_cannedcomments();
 
     open (VERS, '>', '/data/DATA_VERSION') or die $!;
     print VERS "2.05\n";
@@ -140,12 +141,58 @@ replace them, as there are new configuration items.
 
 The script also attempted an in place edit of the WebApollo config file,
 $DATA_WEBAPOLLO_CONFIG/config.xml, and placed the old copy in
-$DATA_WEBAPOLLO_CONFIG/config.xml.old.
+$DATA_WEBAPOLLO_CONFIG/config.xml.old, and an in place edit of
+$DATA_WEBAPOLLO_CONFIG/canned_comments.xml with the old copy in
+$DATA_WEBAPOLLO_CONFIG/canned_comments.xml.old.  This edit only
+added a comment at the beginning of the file, but you should read
+the comment if you've modifed this file in the past.
 
 END
 ;
 
 }
+
+    sub update2_05WebApollo_cannedcomments {
+        my $cannedcomments = $DATA_WEBAPOLLO_CONFIG . 'canned_comments.xml';
+
+        my @result = `grep tRNA $cannedcomments`;
+        return if @result > 0; #doesn't need updating
+
+        my ($newcannedfh, $newcanned) = tempfile();
+        open (my $fh,"<",$cannedcomments) or die "couldn't open $cannedcomments for reading";
+        while ( <$fh> ) {
+             #all we are doing here is adding a new comment
+             if (/element per comment/) {
+                 print $fh <<FIRST
+       <!-- one <comment> element per comment.
+        it must contain either the attribute "feature_type" that defines
+        the type of feature this comment will apply to or the attribute "feature_types"
+        that defines a list (comma separated) of types of features this comment will
+        apply to.
+        types must be be in the form of "CV:term" (e.g., "sequence:gene")
+
+        <comment feature_type="sequence:gene">This is a comment for sequence:gene</comment>
+        or
+        <comment feature_types="sequence:tRNA,sequence:ncRNA">This is a comment for both sequence:tRNA and sequence:ncRNA</comment>
+        -->
+
+FIRST
+;
+                 print $_;
+             }
+             else {
+                 print $_;
+             }
+        }
+
+        close $fh;
+        close $newcannedfh;
+
+        copy ($cannedcomments, "$cannedcomments.old") or die $!;
+        copy ($newcanned,      $cannedcomments)       or die $!;
+
+        return;
+    }
 
     sub update2_05WebApollo_config {
 #update config.xml (joy)
