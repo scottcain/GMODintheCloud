@@ -118,19 +118,49 @@ sub update2_03to2_05 {
                   $DATA_WEBAPOLLO_CONFIG) or die $!;
     }
 
+    update2_05WebApollo_config();
+
+    open (VERS, '>', '/data/DATA_VERSION') or die $!;
+    print VERS "2.05\n";
+    close VERS;
+
+    print STDERR <<END
+
+IMPORTANT: This version of GMOD in the Cloud moved the these files to the
+/data partition:  
+
+    /var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml
+    /var/lib/tomcat7/webapps/WebApollo/config/fasta_config.xml
+    /var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml
+
+If you modified any of these files in your previous instance of GMOD in
+the Cloud, please obtain those files from the old instance and carefully
+merge them into their counterparts on the /data partition.  DO NOT just
+replace them, as there are new configuration items.
+
+The script also attempted an in place edit of the WebApollo config file,
+$DATA_WEBAPOLLO_CONFIG/config.xml, and placed the old copy in
+$DATA_WEBAPOLLO_CONFIG/config.xml.old.
+
+END
+;
+
+}
+
+    sub update2_05WebApollo_config {
 #update config.xml (joy)
 ###first test that it needs updating!
-    my $configfile = $DATA_WEBAPOLLO_CONFIG . 'config.xml';
+        my $configfile = $DATA_WEBAPOLLO_CONFIG . 'config.xml';
 
-    my @result = `grep use_pure_memory_store $configfile`;
-    my $needsupdating = @result > 0 ? 0 : 1; # if the text is present, no need to update
+        my @result = `grep use_pure_memory_store $configfile`;
+        return if @result > 0; #doesn't need updating
 
-    my ($newconfigfh, $newconfig) = tempfile();
-    open (my $fh,"<",$configfile) or die "couldn't open $configfile for reading";
-    while ($needsupdating and $_ = <$fh> ) {
-        if (/use_cds_for_new_transcripts/) {
-            print $newconfigfh $_;
-            print $newconfigfh <<FIRST
+        my ($newconfigfh, $newconfig) = tempfile();
+        open (my $fh,"<",$configfile) or die "couldn't open $configfile for reading";
+        while ( <$fh> ) {
+            if (/use_cds_for_new_transcripts/) {
+                print $newconfigfh $_;
+                print $newconfigfh <<FIRST
 
         <!-- set to false to use hybrid disk/memory store which provides a little slower performance
         but uses a lot less memory - great for annotation rich genomes -->
@@ -138,10 +168,10 @@ sub update2_03to2_05 {
 
 FIRST
 ;
-        }
-        elsif (/\<annotation_info_editor\>/) {
-            print $newconfigfh $_;
-            print $newconfigfh <<SECOND
+            }
+            elsif (/\<annotation_info_editor\>/) {
+                print $newconfigfh $_;
+                print $newconfigfh <<SECOND
 
                 <!-- grouping for the configuration.  The "feature_types" attribute takes a list of
                 SO terms (comma separated) to apply this configuration to
@@ -153,17 +183,17 @@ FIRST
 
 SECOND
 ;
-        }
-        elsif(/\<\/annotation_info_editor\>/) {
-            print $newconfigfh <<THIRD
+            }
+            elsif(/\<\/annotation_info_editor\>/) {
+                print $newconfigfh <<THIRD
 
              </annotation_info_editor_group>
 THIRD
 ;
-            print $newconfigfh $_;
-        } 
-        elsif(/\<\/data_adapters\>/) {
-            print $newconfigfh <<FOURTH
+                print $newconfigfh $_;
+            } 
+            elsif(/\<\/data_adapters\>/) {
+                print $newconfigfh <<FOURTH
 
                 <!-- group the <data_adapter> children elements together -->
                 <data_adapter_group>
@@ -238,47 +268,20 @@ THIRD
 
 FOURTH
 ;
-            print $newconfigfh $_;
-        }
-        else {
-            print $newconfigfh $_;
-        }
+                print $newconfigfh $_;
+            }
+            else {
+                print $newconfigfh $_;
+            }
 
-    } #close the file looping while
+        } #close the file looping while
 
-    close $fh;
-    close $newconfigfh;
+        close $fh;
+        close $newconfigfh;
 
-    if ($needsupdating) {
         copy ($configfile, "$configfile.old") or die $!;
         copy ($newconfig,  $configfile)       or die $!;
+
+        return;
     }
-
-    open (VERS, '>', '/data/DATA_VERSION') or die $!;
-    print VERS "2.05\n";
-    close VERS;
-
-    print STDERR <<END
-
-IMPORTANT: This version of GMOD in the Cloud moved the these files to the
-/data partition:  
-
-    /var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml
-    /var/lib/tomcat7/webapps/WebApollo/config/fasta_config.xml
-    /var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml
-
-If you modified any of these files in your previous instance of GMOD in
-the Cloud, please obtain those files from the old instance and carefully
-merge them into their counterparts on the /data partition.  DO NOT just
-replace them, as there are new configuration items.
-
-The script also attempted an in place edit of the WebApollo config file,
-$configfile, and placed the old copy in
-$configfile.old.
-
-END
-;
-
-}
-
 
