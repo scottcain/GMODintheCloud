@@ -22,6 +22,11 @@
 	<!-- whether to use an existing CDS when creating new transcripts -->
 	<use_cds_for_new_transcripts>true</use_cds_for_new_transcripts>
 
+        <!-- set to false to use hybrid disk/memory store which provides a little slower performance
+        but uses a lot less memory - great for annotation rich genomes -->
+        <use_pure_memory_store>true</use_pure_memory_store>
+
+
 	<!-- user authentication/permission configuration -->
 	<user>
 
@@ -51,7 +56,7 @@
 	<tracks>
 
 		<!-- path to JBrowse refSeqs.json file -->
-		<refseqs>/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/refSeqs.json</refseqs>
+		<refseqs>/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/seq/refSeqs.json</refseqs>
 
 		<!-- annotation track name the current convention is to append
 		the genomic region id to the the name of the annotation track
@@ -91,6 +96,15 @@
 	to make them active -->
 	<annotation_info_editor>
 
+                <!-- grouping for the configuration.  The "feature_types" attribute takes a list of
+                SO terms (comma separated) to apply this configuration to
+                (e.g., feature_types="sequence:transcript,sequence:mRNA" will make it so the group
+                configuration will only apply to features of type "sequence:transcript" or "sequence:mRNA").
+                A value of "default" will make this the default configuration for any types not explicitly
+                defined in other groups.  You can have any many groups as you'd like -->
+                <annotation_info_editor_group feature_types="default">
+
+
 		<!-- display status section.  The text for each <status_flag>
 		element will be displayed as a radio button in the status
 		section, in the same order -->
@@ -116,6 +130,8 @@
 		<!-- display comments section -->
 		<comments />
 
+
+             </annotation_info_editor_group>
 	</annotation_info_editor>
 
 	<!-- tools to be used for sequence searching.  This is optional.
@@ -196,6 +212,78 @@
 			<options>display_features=false</options>
 
 		</data_adapter>
+
+
+                <!-- group the <data_adapter> children elements together -->
+                <data_adapter_group>
+
+                        <!-- display name for adapter group -->
+                        <key>FASTA</key>
+
+                        <!-- required permission for using data adapter group
+                        available options are: read, write, publish -->
+                        <permission>read</permission>
+
+                        <!-- one child <data_adapter> for each data adapter in the group -->
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>peptide</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=peptide</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>cDNA</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cdna</options>
+
+                        </data_adapter>
+                        <data_adapter>
+
+                                <!-- display name for data adapter -->
+                                <key>CDS</key>
+
+                                <!-- class for data adapter plugin -->
+                                <class>org.bbop.apollo.web.dataadapter.fasta.FastaDataAdapter</class>
+
+                                <!-- required permission for using data adapter
+                                available options are: read, write, publish -->
+                                <permission>read</permission>
+
+                                <!-- configuration file for data adapter -->
+                                <config>/config/fasta_config.xml</config>
+
+                                <!-- options to be passed to data adapter -->
+                                <options>output=file&amp;format=gzip&amp;seqType=cds</options>
+
+                        </data_adapter>
+
+                </data_adapter_group>
 
 	</data_adapters>
 

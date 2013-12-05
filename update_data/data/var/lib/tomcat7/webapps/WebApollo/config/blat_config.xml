@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- configuration file for setting up command line Blat support -->
+
+<blat_config>
+
+	<!-- path to Blat binary -->
+	<blat_bin>/usr/local/bin/blat</blat_bin>
+
+	<!-- path to where to put temporary data -->
+	<tmp_dir>/data/webapollo/blat/tmp</tmp_dir>
+
+	<!-- path to Blat database -->
+	<database>/data/webapollo/blat/db/genomic.2bit</database>
+
+	<!-- any Blat options (directly passed to Blat) e.g., -minMatch -->
+	<blat_options></blat_options>
+
+	<!-- true to remove temporary data path after search (set to false for debugging purposes) -->
+	<remove_tmp_dir>true</remove_tmp_dir>
+	
+</blat_config>
