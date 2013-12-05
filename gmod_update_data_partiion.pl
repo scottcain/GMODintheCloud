@@ -106,6 +106,18 @@ sub update2_03to2_05 {
                   $DATA_WEBAPOLLO_CONFIG) or die $!;
     }
 
+    unless (-f $DATA_WEBAPOLLO_CONFIG . 'fasta_config.xml') {
+        print STDERR "Copying $LOCAL_WEBAPOLLO_CONFIG" . "fasta_config.xml\n";
+        copy     ($LOCAL_WEBAPOLLO_CONFIG . 'fasta_config.xml',
+                  $DATA_WEBAPOLLO_CONFIG) or die $!;
+    }
+
+    unless (-f $DATA_WEBAPOLLO_CONFIG . 'blat_config.xml') {
+        print STDERR "Copying $LOCAL_WEBAPOLLO_CONFIG" . "blat_config.xml\n";
+        copy     ($LOCAL_WEBAPOLLO_CONFIG . 'blat_config.xml',
+                  $DATA_WEBAPOLLO_CONFIG) or die $!;
+    }
+
 #update config.xml (joy)
 ###first test that it needs updating!
     my $configfile = $DATA_WEBAPOLLO_CONFIG . 'config.xml';
@@ -252,6 +264,8 @@ IMPORTANT: This version of GMOD in the Cloud moved the these files to the
 /data partition:  
 
     /var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml
+    /var/lib/tomcat7/webapps/WebApollo/config/fasta_config.xml
+    /var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml
 
 If you modified any of these files in your previous instance of GMOD in
 the Cloud, please obtain those files from the old instance and carefully
