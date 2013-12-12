@@ -1,0 +1,138 @@
+#make a copy of the data partition on cloud.gmod.org:
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/tomcat7 stop
+sudo /etc/init.d/postgresql stop
+sudo tar jcvf data.tar.bz2 /data/
+
+#then on the local host machine
+scp -i ~/.ssh/scottcainkey.pem ubuntu@ec2.....amazon.com:data.tar.bz2 .
+scp data.tar.bz2 ubuntu@192.168.1.19:~
+
+#now on guest
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/tomcat7 stop
+sudo /etc/init.d/postgresql stop
+
+mv data.tar.bz2 /
+cd /data
+sudo rm -rf dataHome/ DATA_VERSION etc opt/ usr/ var webapollo webapollo-new/
+sudo tar jxvf data.tar.bz2
+
+sudo /etc/init.d/apache2 start
+sudo /etc/init.d/tomcat7 start
+sudo /etc/init.d/postgresql start
+
+cd ~/sources
+ wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=83
+mv download.php\?id\=83 JBrowse-1.10.11.zip
+unzip JBrowse-1.10.11.zip
+cd /var/www/jbrowse
+
+ave symbolic link info
+# jbrowse_conf.json -> /data/var/www/jbrowse/jbrowse_conf.json
+# data -> /data/var/www/jbrowse/data/
+sudo  rm -rf *
+sudo mv ~/sources/JBrowse-1.10.11/* .
+sudo ./setup.sh
+
+sudo rm jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/jbrowse_conf.json
+sudo ln -s /data/var/www/jbrowse/data/
+
+cd ~/sources
+wget https://apollo-web.googlecode.com/files/WebApollo-2013-11-22.tgz
+tar zxvf WebApollo-2013-11-22.tgz
+cd /var/lib/tomcat7/webapps/
+cp -r WebApollo ~/webapollo_bak
+sudo rm -rf WebApollo
+sudo mkdir WebApollo
+cd WebApollo
+sudo apt-get install default-jdk #how wasn't this here before?
+sudo jar -xvf ~/sources/WebApollo-2013-11-22/war/WebApollo.war
+sudo rm blat_config.xml canned_comments.xml config.xml fasta_config.xml gff3_config.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/blat_config.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/canned_comments.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/config.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/fasta_config.xml 
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/config/gff3_config.xml 
+
+sudo cp ~/webapollo_bak/config/hibernate.xml .
+
+cd ../jbrowse
+sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data
+sudo /etc/init.d/tomcat7 restart
+
+cd /etc/gmod
+sudo vi ROOT_VERSION
+#bump version to 2.05
+cd /data
+sudo vi DATA_VERSION
+#bump version to 2.05
+
+###Notes from work Ed did
+### blat setup
+
+cd ~/sources/kent/src/jkOwnLib
+MACHTYPE=x86_64 make
+
+cd ~/sources/kent/src/lib
+MACHTYPE=x86_64 make
+
+mkdir -p ~/bin/x86_64
+
+cd ~/sources
+wget http://users.soe.ucsc.edu/~kent/src/blatSrc35.zip
+unzip blatSrc35.zip
+cd blatSrc/
+MACHTYPE=x86_64 make
+
+#didn't need to do this--made all of blat code base
+#cd ~/sources/kent/src/utils/faToTwoBit
+sudo mv ~/bin/x86_64/* /usr/local/bin
+
+sudo mkdir -p /data/webapollo/blat/{db,tmp}
+sudo chown -R tomcat7:tomcat7 /data/webapollo/blat
+
+#blat already configured on /data partition
+
+### apache proxy for port WebApollo
+
+## activate proxy
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+
+## create /etc/apache2/sites-available/webapollo
+##copied from GitC
+sudo a2ensite webapollo
+
+sudo /etc/init.d/apache2 restart
+
+### setup script
+mkdir -p scratch/split_gff
+## put setup_webapollo.sh in /usr/local/bin
+cd sources
+## create a current symlink for latest release
+ln -sf WebApollo-2013-11-22 WebApollo-current
+
+### WebApollo setup
+sudo chmod 755 /var/lib/tomcat7/webapps/WebApollo/jbrowse/bin/*
+
+cd /var/lib/tomcat7/webapps/WebApollo/jbrowse
+sudo ln -sf /var/www/jbrowse/extlib
+
+cd /var/lib/tomcat7/webapps/WebApollo
+sudo mkdir tmp
+sudo chown tomcat7:tomcat7 tmp
+
+#get webapollo_setup script from GitC
+#on host:
+scp -i ~/.ssh/scottcainkey.pem ubuntu@ec2-23-20-237-158.compute-1.amazonaws.com:/usr/local/bin/setup_webapollo.sh .
+scp setup_webapollo.sh ubuntu@192.168.1.19:~
+
+#back in guest
+sudo mv setup_webapollo.sh /usr/local/bin
+
+

@@ -165,7 +165,7 @@ sudo cp ~/webapollo_bak/config/hibernate.xml .
 
 cd ../jbrowse
 sudo ln -s /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data
-sudo /etc/init.d/tomcat restart
+sudo /etc/init.d/tomcat7 restart
 
 cd /etc/gmod
 sudo vi ROOT_VERSION
