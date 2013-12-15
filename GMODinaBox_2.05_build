@@ -26,16 +26,16 @@ sudo /etc/init.d/tomcat7 start
 sudo /etc/init.d/postgresql start
 
 cd ~/sources
- wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=83
-mv download.php\?id\=83 JBrowse-1.10.11.zip
-unzip JBrowse-1.10.11.zip
+ wget http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=85
+mv download.php\?id\=85 JBrowse-1.10.12.zip
+unzip JBrowse-1.10.12.zip
 cd /var/www/jbrowse
 
-ave symbolic link info
+##save symbolic link info
 # jbrowse_conf.json -> /data/var/www/jbrowse/jbrowse_conf.json
 # data -> /data/var/www/jbrowse/data/
 sudo  rm -rf *
-sudo mv ~/sources/JBrowse-1.10.11/* .
+sudo mv ~/sources/JBrowse-1.10.12/* .
 sudo ./setup.sh
 
 sudo rm jbrowse_conf.json
@@ -135,4 +135,42 @@ scp setup_webapollo.sh ubuntu@192.168.1.19:~
 #back in guest
 sudo mv setup_webapollo.sh /usr/local/bin
 
+##on host--convert data disk to vdi
+cd cd VirtualBox\ VMs/GMOD\ in\ a\ Box\ pre\ 2.05/
+VBoxManage clonehd GMOD\ in\ a\ Box\ 2.04-disk2.vmdk GMOD\ in\ a\ Box\ 2.05-data-disk.vdi --format VDI --variant Standard
+#remove attachment for vdmk disk and add attachment for vdi
+#boots as normal--the vdi went into sdb without me doing anything extra
+
+##back on guest
+sudo mkdir /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/bam
+sudo mkdir /data/var/lib/tomcat7/webapps/WebApollo/jbrowse/data/bigwig
+
+mkdir ~/sample_data
+cd ~/sample_data
+wget http://icebox.lbl.gov/webapollo/data/pyu_data.tgz
+tar -xvzf pyu_data.tgz
+
+# updated /usr/local/bin/setup_webapollo.sh
+# copied from GitC
+
+# add webapollo env variables (dataHome/bashrc)
+export WEB_APOLLO_DB=web_apollo_users
+export WEB_APOLLO_DB_USER=web_apollo_users_admin
+export WEB_APOLLO_DB_PASS=web_apollo_users_admin
+export PATH=$PATH:/home/ubuntu/sources/WebApollo-current/tools/user:/home/ubuntu/sources/WebApollo-current/tools/data
+
+#apply webapollo patches
+cd ~/sources
+wget http://genomearchitect.org/webapollo/releases/patches/2013-11-22/compression_patch.tgz
+tar zxvf compression_patch.tgz
+cd compression_patch/
+sudo ./apply_patch.sh /var/lib/tomcat7/webapps/WebApollo
+
+cd ..
+wget http://genomearchitect.org/webapollo/releases/patches/2013-11-22/update_gene_boundaries_patch.tgz
+tar zxvf update_gene_boundaries_patch.tgz
+cd update_gene_boundaries_patch
+sudo ./apply_patch.sh /var/lib/tomcat7/webapps/WebApollo
+
+sudo /etc/init.d/tomcat7 restart
 
