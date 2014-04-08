@@ -6,6 +6,7 @@ use FindBin qw($Bin);
 use File::Path qw(make_path);
 use File::Copy;
 use File::Temp qw(tempfile);;
+use File::Copy::Recursive qw(dircopy);
 
 #webapollo directories that we'll use
 my $LOCAL_FILES            = $Bin . '/update_data/data/';
@@ -13,6 +14,10 @@ my $LOCAL_WEBAPOLLO_CONFIG = $LOCAL_FILES . 'var/lib/tomcat7/webapps/WebApollo/c
 my $DATA_WEBAPOLLO_CONFIG  = '/data/var/lib/tomcat7/webapps/WebApollo/config/';
 my $LOCAL_TOMCAT_BIN       = $LOCAL_FILES . 'usr/share/tomcat7/bin/';
 my $DATA_TOMCAT_BIN        ='/data/usr/share/tomcat7/bin/';
+
+#canto directory
+my $LOCAL_CANTODIR         = $LOCAL_FILES . 'canto/';
+my $DATA_CANTODIR          = '/data/canto';
 
 my $root_version = 0;
 my $data_version = 0;
@@ -22,6 +27,8 @@ exit 0 unless (update_needed()) ;
 update0to2_03() if $data_version < 2.03;
 
 update2_03to2_05() if $data_version < 2.05;
+
+update2_05to2_06() if $data_version < 2.06;
 
 exit 0;
 
@@ -39,6 +46,20 @@ sub update_needed {
     }
 
     return 1;
+}
+
+sub update2_05to2_06 {
+    unless (-d $DATA_CANTODIR) {
+        print STDERR "Making $DATA_CANTODIR\n";
+        make_path($DATA_CANTODIR) or die $!;
+    } 
+
+    unless (-f $DATA_CANTODIR . 'canto_deploy_yeast.yaml') {
+        print STDERR "Copying contents of $DATA_CANTODIR\n";
+        dircopy($LOCAL_CANTODIR, $DATA_CANTODIR) or die $!;
+    } 
+
+    print STDERR <<END
 }
 
 sub update0to2_03 {
