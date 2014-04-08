@@ -1,0 +1,43 @@
+---
+Model::TrackModel:
+  connect_info:
+    - dbi:SQLite:dbname=/data/canto/yeast_data/track.sqlite3
+  schema_class: Canto::TrackDB
+data_directory: /data/canto/yeast_data/
+
+canto_url: http://cloud.gmod.org/
+
+header_image_url: '/canto'
+
+enabled_annotation_type_list:
+  - molecular_function
+  - biological_process
+  - cellular_component
+
+Model::ChadoModel:
+  schema_class: 'Canto::ChadoDB'
+  connect_info:
+    - dbi:Pg:dbname=drupal;host=localhost
+    - ubuntu
+    - ubuntu
+
+implementation_classes:
+  gene_adaptor: Canto::Chado::GeneLookup
+  ontology_annotation_adaptor: Canto::Chado::OntologyAnnotationLookup
+  ontology_adaptor: Canto::Track::OntologyLookup
+
+instance_organism:
+   taxonid: 4932
+
+organism_taxon_id:
+  Saccharomyces:
+    cerevisiae: 4932
+
+messages:
+  gene_upload:
+    systematic_identifier_desc: systematic identifier
+    primary_name_desc: standard name
+    examples:
+      gene_identifier: 'YDL102W'
+      gene_name: 'BUL2'
+

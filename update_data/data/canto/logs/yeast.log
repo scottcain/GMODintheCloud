@@ -1,0 +1,636 @@
+Mon Mar 31 01:21:40 UTC 2014
+start_server (pid:24744) starting now...
+starting new worker 24747
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24747 seems to have failed to start, exit status:512
+starting new worker 24748
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24748 seems to have failed to start, exit status:512
+starting new worker 24749
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24749 seems to have failed to start, exit status:512
+starting new worker 24750
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24750 seems to have failed to start, exit status:512
+starting new worker 24752
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24752 seems to have failed to start, exit status:512
+starting new worker 24753
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24753 seems to have failed to start, exit status:512
+starting new worker 24754
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24754 seems to have failed to start, exit status:512
+starting new worker 24755
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24755 seems to have failed to start, exit status:512
+starting new worker 24756
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24756 seems to have failed to start, exit status:512
+starting new worker 24757
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24757 seems to have failed to start, exit status:512
+starting new worker 24758
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24758 seems to have failed to start, exit status:512
+starting new worker 24759
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24759 seems to have failed to start, exit status:512
+starting new worker 24760
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24760 seems to have failed to start, exit status:512
+starting new worker 24761
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24761 seems to have failed to start, exit status:512
+starting new worker 24762
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24762 seems to have failed to start, exit status:512
+starting new worker 24763
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+new worker 24763 seems to have failed to start, exit status:512
+starting new worker 24764
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24764 died unexpectedly with status:512, restarting
+starting new worker 24769
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24769 died unexpectedly with status:512, restarting
+starting new worker 24770
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24770 died unexpectedly with status:512, restarting
+starting new worker 24771
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24771 died unexpectedly with status:512, restarting
+starting new worker 24776
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24776 died unexpectedly with status:512, restarting
+starting new worker 24777
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24777 died unexpectedly with status:512, restarting
+starting new worker 24778
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24778 died unexpectedly with status:512, restarting
+starting new worker 24779
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24779 died unexpectedly with status:512, restarting
+starting new worker 24780
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24780 died unexpectedly with status:512, restarting
+starting new worker 24781
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24781 died unexpectedly with status:512, restarting
+starting new worker 24782
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24782 died unexpectedly with status:512, restarting
+starting new worker 24784
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24784 died unexpectedly with status:512, restarting
+starting new worker 24785
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24785 died unexpectedly with status:512, restarting
+starting new worker 24786
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24786 died unexpectedly with status:512, restarting
+starting new worker 24788
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24788 died unexpectedly with status:512, restarting
+starting new worker 24790
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24790 died unexpectedly with status:512, restarting
+starting new worker 24792
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24792 died unexpectedly with status:512, restarting
+starting new worker 24810
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24810 died unexpectedly with status:512, restarting
+starting new worker 24919
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 24919 died unexpectedly with status:512, restarting
+starting new worker 25022
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25022 died unexpectedly with status:512, restarting
+starting new worker 25023
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25023 died unexpectedly with status:512, restarting
+starting new worker 25024
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25024 died unexpectedly with status:512, restarting
+starting new worker 25076
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25076 died unexpectedly with status:512, restarting
+starting new worker 25087
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25087 died unexpectedly with status:512, restarting
+starting new worker 25088
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25088 died unexpectedly with status:512, restarting
+starting new worker 25089
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25089 died unexpectedly with status:512, restarting
+starting new worker 25091
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25091 died unexpectedly with status:512, restarting
+starting new worker 25092
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25092 died unexpectedly with status:512, restarting
+starting new worker 25093
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25093 died unexpectedly with status:512, restarting
+starting new worker 25094
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25094 died unexpectedly with status:512, restarting
+starting new worker 25095
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25095 died unexpectedly with status:512, restarting
+starting new worker 25096
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25096 died unexpectedly with status:512, restarting
+starting new worker 25097
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25097 died unexpectedly with status:512, restarting
+starting new worker 25098
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25098 died unexpectedly with status:512, restarting
+starting new worker 25099
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25099 died unexpectedly with status:512, restarting
+starting new worker 25102
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25102 died unexpectedly with status:512, restarting
+starting new worker 25103
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25103 died unexpectedly with status:512, restarting
+starting new worker 25104
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25104 died unexpectedly with status:512, restarting
+starting new worker 25105
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25105 died unexpectedly with status:512, restarting
+starting new worker 25106
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25106 died unexpectedly with status:512, restarting
+starting new worker 25107
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25107 died unexpectedly with status:512, restarting
+starting new worker 25108
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25108 died unexpectedly with status:512, restarting
+starting new worker 25109
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25109 died unexpectedly with status:512, restarting
+starting new worker 25111
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25111 died unexpectedly with status:512, restarting
+starting new worker 25112
+Can't locate Canto/Config.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/canto/script/canto_start line 28.
+BEGIN failed--compilation aborted at /usr/local/share/canto/script/canto_start line 28.
+worker 25112 died unexpectedly with status:512, restarting
+starting new worker 25113
+received TERM, sending TERM to all workers:25113
+worker 25113 died, status:15
+exiting
+Mon Mar 31 01:28:39 UTC 2014
+start_server (pid:25222) starting now...
+starting new worker 25225
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25225 died unexpectedly with status:512, restarting
+starting new worker 25229
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25229 died unexpectedly with status:512, restarting
+starting new worker 25231
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25231 died unexpectedly with status:512, restarting
+starting new worker 25233
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25233 died unexpectedly with status:512, restarting
+starting new worker 25235
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25235 died unexpectedly with status:512, restarting
+starting new worker 25237
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25237 died unexpectedly with status:512, restarting
+starting new worker 25239
+Canto loading ...DBIx::Class::Storage::DBI::__ANON__(): DBI Exception: DBD::SQLite::db do failed: unable to open database file [for Statement "PRAGMA journal_mode = WAL;"] at lib/Canto/DB.pm line 135
+Compilation failed in require at ./script/canto_start line 73, <DATA> line 998.
+worker 25239 died unexpectedly with status:512, restarting
+starting new worker 25242
+Canto loading ...received TERM, sending TERM to all workers:25242
+worker 25242 died, status:15
+exiting
+Mon Mar 31 01:29:51 UTC 2014
+start_server (pid:25272) starting now...
+starting new worker 25275
+Canto loading ...Can't locate Net/Server/SS/PreFork.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Plack/Handler/Starman.pm line 14, <DATA> line 998.
+Starting Canto server
+worker 25275 died unexpectedly with status:512, restarting
+starting new worker 25277
+Canto loading ...Can't locate Net/Server/SS/PreFork.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Plack/Handler/Starman.pm line 14, <DATA> line 998.
+Starting Canto server
+worker 25277 died unexpectedly with status:512, restarting
+starting new worker 25279
+Canto loading ...Can't locate Net/Server/SS/PreFork.pm in @INC (@INC contains: lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Plack/Handler/Starman.pm line 14, <DATA> line 998.
+Starting Canto server
+worker 25279 died unexpectedly with status:512, restarting
+starting new worker 25281
+received TERM, sending TERM to all workers:25281
+worker 25281 died, status:15
+exiting
+Mon Mar 31 01:37:35 UTC 2014
+start_server (pid:25497) starting now...
+starting new worker 25500
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26170
+new worker is now running, sending TERM to old workers:25500
+sleep 0 secs
+killing old workers
+2014/03/31-02:15:17 Server closing!
+old worker 25500 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26211
+new worker is now running, sending TERM to old workers:26170
+sleep 0 secs
+killing old workers
+2014/03/31-02:16:07 Server closing!
+old worker 26170 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26254
+new worker is now running, sending TERM to old workers:26211
+sleep 0 secs
+killing old workers
+2014/03/31-02:17:00 Server closing!
+old worker 26211 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26306
+new worker is now running, sending TERM to old workers:26254
+sleep 0 secs
+killing old workers
+2014/03/31-02:17:37 Server closing!
+old worker 26254 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26350
+new worker is now running, sending TERM to old workers:26306
+sleep 0 secs
+killing old workers
+2014/03/31-02:18:49 Server closing!
+old worker 26306 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26422
+new worker is now running, sending TERM to old workers:26350
+sleep 0 secs
+killing old workers
+2014/03/31-02:22:28 Server closing!
+old worker 26350 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26872
+new worker is now running, sending TERM to old workers:26422
+sleep 0 secs
+killing old workers
+2014/03/31-03:31:35 Server closing!
+old worker 26422 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 26926
+new worker is now running, sending TERM to old workers:26872
+sleep 0 secs
+killing old workers
+2014/03/31-03:32:21 Server closing!
+old worker 26872 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 641
+new worker is now running, sending TERM to old workers:26926
+sleep 0 secs
+killing old workers
+2014/03/31-21:47:02 Server closing!
+old worker 26926 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+Cannot send mail to "kmr44@cam.ac.uk" with subject "Confirmation of curation session for PMID:1": couldn't find a sendmail executable at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 51
+	Email::Sender::Transport::Sendmail::_find_sendmail('Email::Sender::Transport::Sendmail=HASH(0x844a8d0)', 'sendmail') called at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 24
+	Email::Sender::Transport::Sendmail::__ANON__('Email::Sender::Transport::Sendmail=HASH(0x844a8d0)') called at reader Email::Sender::Transport::Sendmail::sendmail (defined at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 26) line 6
+	Email::Sender::Transport::Sendmail::sendmail('Email::Sender::Transport::Sendmail=HASH(0x844a8d0)') called at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 29
+	Email::Sender::Transport::Sendmail::BUILD('Email::Sender::Transport::Sendmail=HASH(0x844a8d0)', 'HASH(0x8d2e1e8)') called at constructor Email::Sender::Transport::Sendmail::new (defined at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 85) line 35
+	Email::Sender::Transport::Sendmail::new('Email::Sender::Transport::Sendmail') called at lib/Canto/MailSender.pm line 100
+	Canto::MailSender::__ANON__() called at /usr/share/perl5/Try/Tiny.pm line 76
+	eval {...} called at /usr/share/perl5/Try/Tiny.pm line 67
+	Try::Tiny::try('CODE(0x8d348a0)', 'Try::Tiny::Catch=REF(0x8ce2520)') called at lib/Canto/MailSender.pm line 108
+	Canto::MailSender::send('Canto::MailSender=HASH(0x82b6d30)', 'to', 'kmr44@cam.ac.uk', 'from', 'CONFIGURE_ME_IN_CANTO_DEPLOY.YAML', 'subject', 'Confirmation of curation session for PMID:1', 'body', 'Thank you for agreeing to curate:\x{a}  PMID:1\x{a}  "Formate assay i...', ...) called at lib/Canto/Controller/Curs.pm line 3124
+	Canto::Controller::Curs::_send_mail('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)', 'subject', 'Confirmation of curation session for PMID:1', 'body', 'Thank you for agreeing to curate:\x{a}  PMID:1\x{a}  "Formate assay i...', 'to', 'kmr44@cam.ac.uk', 'from', ...) called at lib/Canto/Controller/Curs.pm line 3168
+	Canto::Controller::Curs::_send_email_from_template('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)', 'session_accepted') called at lib/Canto/Controller/Curs.pm line 3012
+	Canto::Controller::Curs::_assign_session('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)', 0) called at lib/Canto/Controller/Curs.pm line 3029
+	Canto::Controller::Curs::assign_session('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x75ee118)', 'Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75ee118)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75ee118)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75ee118)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x75ee118)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/ActionChain.pm line 38
+	Catalyst::ActionChain::dispatch('Catalyst::ActionChain=HASH(0x7845408)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Controller.pm line 125
+	Catalyst::Controller::_ACTION('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x753fde8)', 'Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x753fde8)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x753fde8)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x753fde8)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x753fde8)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x4a05ba8)', 'forward', 'Canto=HASH(0x7c09d18)', '_ACTION') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x4a05ba8)', 'Canto=HASH(0x7c09d18)', '_ACTION') called at /usr/share/perl5/Catalyst.pm line 342
+	Catalyst::forward('Canto=HASH(0x7c09d18)', '_ACTION') called at /usr/share/perl5/Catalyst/Controller.pm line 99
+	Catalyst::Controller::_DISPATCH('Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x75328a8)', 'Canto::Controller::Curs=HASH(0x722b198)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75328a8)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75328a8)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7c09d18)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x75328a8)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x75328a8)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x4a05ba8)', 'forward', 'Canto=HASH(0x7c09d18)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x4a05ba8)', 'Canto=HASH(0x7c09d18)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst.pm line 342
+	Catalyst::forward('Canto=HASH(0x7c09d18)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 105
+	Catalyst::Dispatcher::dispatch('Catalyst::Dispatcher=HASH(0x4a05ba8)', 'Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst.pm line 1613
+	Catalyst::dispatch('Canto=HASH(0x7c09d18)') called at /usr/local/share/perl/5.14.2/Catalyst/Plugin/PageCache.pm line 120
+	Catalyst::Plugin::PageCache::dispatch('Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst/Plugin/Static/Simple.pm line 76
+	Class::MOP::Class:::around('CODE(0x4c71290)', 'Canto=HASH(0x7c09d18)') called at /usr/lib/perl5/Class/MOP/Method/Wrapped.pm line 162
+	Class::MOP::Method::Wrapped::__ANON__('Canto=HASH(0x7c09d18)') called at /usr/lib/perl5/Class/MOP/Method/Wrapped.pm line 91
+	Canto::dispatch('Canto=HASH(0x7c09d18)') called at /usr/share/perl5/Catalyst.pm line 1963
+	Catalyst::__ANON__() called at /usr/share/perl5/Try/Tiny.pm line 76
+	eval {...} called at /usr/share/perl5/Try/Tiny.pm line 67
+	Try::Tiny::try('CODE(0x7c092c8)', 'Try::Tiny::Catch=REF(0x7845780)') called at /usr/share/perl5/Catalyst.pm line 1969
+	Catalyst::handle_request('Canto', 'env', 'HASH(0x7be9ba8)') called at /usr/share/perl5/Catalyst/Engine.pm line 856
+	Catalyst::Engine::__ANON__('CODE(0x7c09118)') called at /usr/share/perl5/Plack/Util.pm line 324
+	Plack::Util::__ANON__('CODE(0x7c07880)') called at /usr/share/perl5/Starman/Server.pm line 225
+	Starman::Server::process_request('Starman::Server=HASH(0x78458a0)') called at /usr/share/perl5/Net/Server.pm line 142
+	Net::Server::run_client_connection('Starman::Server=HASH(0x78458a0)') called at /usr/share/perl5/Net/Server/PreFork.pm line 273
+	eval {...} called at /usr/share/perl5/Net/Server/PreFork.pm line 273
+	Net::Server::PreFork::run_child('Starman::Server=HASH(0x78458a0)') called at /usr/share/perl5/Net/Server/PreFork.pm line 229
+	Net::Server::PreFork::run_n_children('Starman::Server=HASH(0x78458a0)', 8) called at /usr/share/perl5/Net/Server/PreFork.pm line 144
+	Net::Server::PreFork::loop('Starman::Server=HASH(0x78458a0)') called at /usr/share/perl5/Net/Server.pm line 117
+	Net::Server::run('Starman::Server=HASH(0x78458a0)', 'port', 'ARRAY(0x799de38)', 'host', 'ARRAY(0x799de08)', 'proto', 'ARRAY(0x799de68)', 'serialize', 'flock', ...) called at /usr/share/perl5/Starman/Server.pm line 61
+	Starman::Server::run('Starman::Server=HASH(0x78458a0)', 'CODE(0x49fd158)', 'HASH(0x7be27b0)') called at /usr/share/perl5/Plack/Handler/Starman.pm line 18
+	Plack::Handler::Starman::run('Plack::Handler::Starman=HASH(0x7846098)', 'CODE(0x49fd158)') called at /usr/share/perl5/Plack/Loader.pm line 88
+	Plack::Loader::run('Plack::Loader=HASH(0x7845e70)', 'Plack::Handler::Starman=HASH(0x7846098)') called at /usr/share/perl5/Plack/Runner.pm line 263
+	Plack::Runner::run('Plack::Runner=HASH(0x49f5ad0)', 'CODE(0x49fd158)') called at ./script/canto_start line 99
+internal error: Caught exception in Canto::Controller::Curs->gene_upload "Can't call method "cv_id" on an undefined value at lib/Canto/Chado/GeneLookup.pm line 70." at lib/Canto/Controller/Root.pm line 53.
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 811
+new worker is now running, sending TERM to old workers:641
+sleep 0 secs
+killing old workers
+2014/03/31-21:52:21 Server closing!
+old worker 641 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+internal error: Caught exception in Canto::Controller::Curs->gene_upload "Can't call method "value" on an undefined value at lib/Canto/ChadoDB/Organism.pm line 262." at lib/Canto/Controller/Root.pm line 53.
+received TERM, sending TERM to all workers:811
+2014/04/03-21:22:49 Server closing!
+Thu Apr  3 21:23:51 UTC 2014
+failed to open file:/var/run/canto-yeast-7000: Permission denied at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Fri Apr  4 14:22:03 UTC 2014
+failed to open file:/var/run/canto-yeast-7000: Permission denied at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Fri Apr  4 14:26:43 UTC 2014
+start_server (pid:5469) starting now...
+starting new worker 5472
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received TERM, sending TERM to all workers:5472
+2014/04/04-14:27:25 Server closing!
+worker 5472 died, status:0
+exiting
+Fri Apr  4 14:27:53 UTC 2014
+failed to open file:/var/run/canto-yeast-7000: Permission denied at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Fri Apr  4 14:29:28 UTC 2014
+failed to open file:/var/run/canto-yeast-7000: Permission denied at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Fri Apr  4 14:41:45 UTC 2014
+start_server (pid:1209) starting now...
+starting new worker 1212
+Canto loading ...Setting gid to "0 0 0"
+Starting Canto server
+received TERM, sending TERM to all workers:1212
+2014/04/04-14:49:42 Server closing!
+worker 1212 died, status:0
+exiting
+Fri Apr  4 14:49:51 UTC 2014
+start_server (pid:1289) starting now...
+starting new worker 1292
+Canto loading ...Setting gid to "0 0 0"
+Starting Canto server
+received TERM, sending TERM to all workers:1292
+2014/04/07-01:36:41 Server closing!
+worker 1292 died, status:0
+exiting
+Mon Apr  7 01:36:48 UTC 2014
+start_server (pid:14126) starting now...
+starting new worker 14129
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 16538
+new worker is now running, sending TERM to old workers:14129
+sleep 0 secs
+killing old workers
+2014/04/07-11:24:53 Server closing!
+old worker 14129 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 16580
+new worker is now running, sending TERM to old workers:16538
+sleep 0 secs
+killing old workers
+2014/04/07-11:27:48 Server closing!
+old worker 16538 died, status:0
+Canto loading ...can't find an organism in the DB using taxonid "4932" from "instance_organism" configuration so this Canto will run in multi-organism mode at lib/Canto/Config.pm line 335, <DATA> line 998.
+Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 16763
+new worker is now running, sending TERM to old workers:16580
+sleep 0 secs
+killing old workers
+2014/04/07-11:29:54 Server closing!
+old worker 16580 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+received HUP (num_old_workers=0)
+spawning a new worker (num_old_workers=0)
+starting new worker 16806
+new worker is now running, sending TERM to old workers:16763
+sleep 0 secs
+killing old workers
+2014/04/07-11:35:00 Server closing!
+old worker 16763 died, status:0
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+Cannot send mail to "cain.cshl@gmail.com" with subject "Confirmation of curation session for PMID:24699245": couldn't find a sendmail executable at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 51
+	Email::Sender::Transport::Sendmail::_find_sendmail('Email::Sender::Transport::Sendmail=HASH(0x9325d48)', 'sendmail') called at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 24
+	Email::Sender::Transport::Sendmail::__ANON__('Email::Sender::Transport::Sendmail=HASH(0x9325d48)') called at reader Email::Sender::Transport::Sendmail::sendmail (defined at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 26) line 6
+	Email::Sender::Transport::Sendmail::sendmail('Email::Sender::Transport::Sendmail=HASH(0x9325d48)') called at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 29
+	Email::Sender::Transport::Sendmail::BUILD('Email::Sender::Transport::Sendmail=HASH(0x9325d48)', 'HASH(0x9323420)') called at constructor Email::Sender::Transport::Sendmail::new (defined at /usr/share/perl5/Email/Sender/Transport/Sendmail.pm line 85) line 35
+	Email::Sender::Transport::Sendmail::new('Email::Sender::Transport::Sendmail') called at lib/Canto/MailSender.pm line 100
+	Canto::MailSender::__ANON__() called at /usr/share/perl5/Try/Tiny.pm line 76
+	eval {...} called at /usr/share/perl5/Try/Tiny.pm line 67
+	Try::Tiny::try('CODE(0x9326060)', 'Try::Tiny::Catch=REF(0x92cfff8)') called at lib/Canto/MailSender.pm line 108
+	Canto::MailSender::send('Canto::MailSender=HASH(0x88b96e8)', 'to', 'cain.cshl@gmail.com', 'from', 'CONFIGURE_ME_IN_CANTO_DEPLOY.YAML', 'subject', 'Confirmation of curation session for PMID:24699245', 'body', 'Thank you for agreeing to curate:\x{a}  PMID:24699245\x{a}  "Discover...', ...) called at lib/Canto/Controller/Curs.pm line 3124
+	Canto::Controller::Curs::_send_mail('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)', 'subject', 'Confirmation of curation session for PMID:24699245', 'body', 'Thank you for agreeing to curate:\x{a}  PMID:24699245\x{a}  "Discover...', 'to', 'cain.cshl@gmail.com', 'from', ...) called at lib/Canto/Controller/Curs.pm line 3168
+	Canto::Controller::Curs::_send_email_from_template('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)', 'session_accepted') called at lib/Canto/Controller/Curs.pm line 3012
+	Canto::Controller::Curs::_assign_session('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)', 0) called at lib/Canto/Controller/Curs.pm line 3029
+	Canto::Controller::Curs::assign_session('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x78f4208)', 'Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78f4208)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78f4208)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78f4208)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x78f4208)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/ActionChain.pm line 38
+	Catalyst::ActionChain::dispatch('Catalyst::ActionChain=HASH(0x8562f48)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Controller.pm line 125
+	Catalyst::Controller::_ACTION('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x78449a8)', 'Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78449a8)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78449a8)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x78449a8)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x78449a8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x4cf1590)', 'forward', 'Canto=HASH(0x7fb47d8)', '_ACTION') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x4cf1590)', 'Canto=HASH(0x7fb47d8)', '_ACTION') called at /usr/share/perl5/Catalyst.pm line 342
+	Catalyst::forward('Canto=HASH(0x7fb47d8)', '_ACTION') called at /usr/share/perl5/Catalyst/Controller.pm line 99
+	Catalyst::Controller::_DISPATCH('Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x7837708)', 'Canto::Controller::Curs=HASH(0x75327d8)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst.pm line 1667
+	eval {...} called at /usr/share/perl5/Catalyst.pm line 1667
+	Catalyst::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x7837708)') called at /usr/share/perl5/Catalyst/Plugin/Authorization/ACL.pm line 38
+	Catalyst::Plugin::Authorization::ACL::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x7837708)') called at /usr/share/perl5/Catalyst/Plugin/StackTrace.pm line 22
+	Catalyst::Plugin::StackTrace::execute('Canto=HASH(0x7fb47d8)', 'Canto::Controller::Curs', 'Catalyst::Action=HASH(0x7837708)') called at /usr/share/perl5/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x7837708)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x4cf1590)', 'forward', 'Canto=HASH(0x7fb47d8)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x4cf1590)', 'Canto=HASH(0x7fb47d8)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst.pm line 342
+	Catalyst::forward('Canto=HASH(0x7fb47d8)', '/curs/_DISPATCH') called at /usr/share/perl5/Catalyst/Dispatcher.pm line 105
+	Catalyst::Dispatcher::dispatch('Catalyst::Dispatcher=HASH(0x4cf1590)', 'Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst.pm line 1613
+	Catalyst::dispatch('Canto=HASH(0x7fb47d8)') called at /usr/local/share/perl/5.14.2/Catalyst/Plugin/PageCache.pm line 120
+	Catalyst::Plugin::PageCache::dispatch('Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst/Plugin/Static/Simple.pm line 76
+	Class::MOP::Class:::around('CODE(0x4f83b38)', 'Canto=HASH(0x7fb47d8)') called at /usr/lib/perl5/Class/MOP/Method/Wrapped.pm line 162
+	Class::MOP::Method::Wrapped::__ANON__('Canto=HASH(0x7fb47d8)') called at /usr/lib/perl5/Class/MOP/Method/Wrapped.pm line 91
+	Canto::dispatch('Canto=HASH(0x7fb47d8)') called at /usr/share/perl5/Catalyst.pm line 1963
+	Catalyst::__ANON__() called at /usr/share/perl5/Try/Tiny.pm line 76
+	eval {...} called at /usr/share/perl5/Try/Tiny.pm line 67
+	Try::Tiny::try('CODE(0x856e360)', 'Try::Tiny::Catch=REF(0x7f6a1f8)') called at /usr/share/perl5/Catalyst.pm line 1969
+	Catalyst::handle_request('Canto', 'env', 'HASH(0x7f04bf8)') called at /usr/share/perl5/Catalyst/Engine.pm line 856
+	Catalyst::Engine::__ANON__('CODE(0x7f6ad08)') called at /usr/share/perl5/Plack/Util.pm line 324
+	Plack::Util::__ANON__('CODE(0x7f1bc78)') called at /usr/share/perl5/Starman/Server.pm line 225
+	Starman::Server::process_request('Starman::Server=HASH(0x7c839f8)') called at /usr/share/perl5/Net/Server.pm line 142
+	Net::Server::run_client_connection('Starman::Server=HASH(0x7c839f8)') called at /usr/share/perl5/Net/Server/PreFork.pm line 273
+	eval {...} called at /usr/share/perl5/Net/Server/PreFork.pm line 273
+	Net::Server::PreFork::run_child('Starman::Server=HASH(0x7c839f8)') called at /usr/share/perl5/Net/Server/PreFork.pm line 229
+	Net::Server::PreFork::run_n_children('Starman::Server=HASH(0x7c839f8)', 8) called at /usr/share/perl5/Net/Server/PreFork.pm line 144
+	Net::Server::PreFork::loop('Starman::Server=HASH(0x7c839f8)') called at /usr/share/perl5/Net/Server.pm line 117
+	Net::Server::run('Starman::Server=HASH(0x7c839f8)', 'port', 'ARRAY(0x7ef7520)', 'host', 'ARRAY(0x7ef74f0)', 'proto', 'ARRAY(0x7ef7550)', 'serialize', 'flock', ...) called at /usr/share/perl5/Starman/Server.pm line 61
+	Starman::Server::run('Starman::Server=HASH(0x7c839f8)', 'CODE(0x4ce2758)', 'HASH(0x7ef73d0)') called at /usr/share/perl5/Plack/Handler/Starman.pm line 18
+	Plack::Handler::Starman::run('Plack::Handler::Starman=HASH(0x7c7e110)', 'CODE(0x4ce2758)') called at /usr/share/perl5/Plack/Loader.pm line 88
+	Plack::Loader::run('Plack::Loader=HASH(0x7c7a170)', 'Plack::Handler::Starman=HASH(0x7c7e110)') called at /usr/share/perl5/Plack/Runner.pm line 263
+	Plack::Runner::run('Plack::Runner=HASH(0x4ce17c8)', 'CODE(0x4ce2758)') called at ./script/canto_start line 99
+Mon Apr  7 20:50:38 UTC 2014
+failed to open file:/var/run/canto/canto-yeast-7000: No such file or directory at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Mon Apr  7 20:54:48 UTC 2014
+start_server (pid:2003) starting now...
+starting new worker 2006
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
+Tue Apr  8 14:46:59 UTC 2014
+failed to open file:/var/run/canto/canto-yeast-7000: No such file or directory at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Tue Apr  8 14:48:37 UTC 2014
+failed to open file:/var/run/canto/canto-yeast-7000: Permission denied at /usr/local/share/perl/5.14.2/Server/Starter.pm line 63.
+Tue Apr  8 14:49:28 UTC 2014
+start_server (pid:1379) starting now...
+starting new worker 1382
+Canto loading ...Setting gid to "1000 1000 4 20 24 25 29 30 44 46 110 111 1000"
+Starting Canto server
