@@ -106,7 +106,7 @@ tar zxvf sky-6.x-3.11.tar.gz
 cd ../modules
 wget http://ftp.drupal.org/files/projects/views-6.x-2.16.tar.gz
 tar zxvf views-6.x-2.16.tar.gz
-wget http://ftp.drupal.org/files/projects/views_data_export-6.x-2.0-beta6.tar.gztar zxvf views_data_export-6.x-2.0-beta6.tar.gz
+wget http://ftp.drupal.org/files/projects/views_data_export-6.x-2.0-beta6.tar.gz
 wget http://ftp.drupal.org/files/projects/cck-6.x-2.9.tar.gz
 tar zxvf cck-6.x-2.9.tar.gz 
 wget http://ftp.drupal.org/files/projects/ckeditor-6.x-1.13.tar.gz
