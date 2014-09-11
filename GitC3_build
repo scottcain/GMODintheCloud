@@ -1,0 +1,51 @@
+#started with an ubuntu 14.04 64bit, ebs AMI
+#added a data volume from a GitC 2.05 release but made it 10G
+#in OS, resize and mount disk:
+
+sudo e2fsck -f /dev/xvdc
+sudo resize2fs /dev/xvdc 10G
+sudo mount -t ext4 /dev/xvdc /data
+
+sudo apt-get update
+sudo apt-get upgrade
+
+
+sudo apt-get install amap-align apache2 apache2-bin apache2-data bedtools bioperl bioperl-run blast2 bowtie bwa dialign emboss emboss-data emboss-lib exonerate fontconfig fontconfig-config fonts-dejavu-core fonts-liberation ghostscript graphviz gsfonts hmmer infernal javascript-common kalign libace-perl libalgorithm-c3-perl libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-munkres-perl libapache-dbi-perl libapache2-mod-perl2 libapache2-reload-perl libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libarray-compare-perl libauthen-sasl-perl libavahi-client3 libavahi-common-data libavahi-common3 libb-hooks-endofscope-perl libbio-asn1-entrezgene-perl libbio-graphics-perl libbio-perl-perl libbio-perl-run-perl libbio-scf-perl libbit-vector-perl libbsd-resource-perl libcache-cache-perl libcairo2 libcarp-clan-perl libcdt5 libcgi-session-perl libcgraph6 libclass-c3-perl libclass-c3-xs-perl libclass-inspector-perl libclass-load-perl libclass-load-xs-perl libclass-tiny-perl libclone-perl libcommon-sense-perl libconvert-binary-c-perl libconvert-binhex-perl libcrypt-ssleay-perl libcups2 libcupsfilters1 libcupsimage2 libdata-optlist-perl libdata-stag-perl libdate-calc-perl libdate-calc-xs-perl libdate-manip-perl libdatrie1 libdbd-mysql-perl libdbd-pg-perl libdbd-sqlite3-perl libdbi-perl libdevel-caller-perl libdevel-globaldestruction-perl libdevel-lexalias-perl libdevel-partialdump-perl libdevel-symdump-perl libencode-locale-perl liberror-perl libeval-closure-perl libfcgi-perl libfile-listing-perl libfile-slurp-perl libfont-afm-perl libfontconfig1 libfreezethaw-perl libgd-gd2-perl libgd-svg-perl libgd3 libgfortran3 libgraph-perl libgraphite2-3 libgraphviz-perl libgs9 libgs9-common libgvc6 libgvpr2 libharfbuzz0b libheap-perl libhpdf-2.2.1 libhtml-form-perl libhtml-format-perl libhtml-parser-perl libhtml-tableextract-perl libhtml-tagset-perl libhtml-tree-perl libhttp-cookies-perl libhttp-daemon-perl libhttp-date-perl libhttp-message-perl libhttp-negotiate-perl libice6 libijs-0.35 libio-html-perl libio-pty-perl libio-sessiondata-perl libio-socket-inet6-perl libio-socket-ssl-perl libio-stringy-perl libipc-run-perl libipc-sharelite-perl libjbig0 libjbig2dec0 libjcode-pm-perl libjpeg-turbo8 libjpeg8 libjs-prototype libjs-scriptaculous libjson-perl libjson-xs-perl liblcms2-2 liblist-moreutils-perl libltdl7 liblwp-mediatypes-perl liblwp-protocol-https-perl libmailtools-perl libmath-derivative-perl libmath-spline-perl libmime-tools-perl libmldbm-perl libmodule-implementation-perl libmodule-runtime-perl libmoose-perl libmro-compat-perl libmysqlclient18 libnamespace-clean-perl libncbi6 libnet-http-perl libnet-smtp-ssl-perl libnet-ssleay-perl libole-storage-lite-perl libossp-uuid-perl libossp-uuid16 libpackage-deprecationmanager-perl libpackage-stash-perl libpackage-stash-xs-perl libpadwalker-perl libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpaper-utils libpaper1 libparams-classify-perl libparams-util-perl libparse-recdescent-perl libpathplan4 libperl5.18 libpixman-1-0 libpostscript-perl libpq5 libquadmath0 libruby1.9.1 libset-scalar-perl libsm6 libsoap-lite-perl libsocket6-perl libsort-naturally-perl libspreadsheet-parseexcel-perl libspreadsheet-writeexcel-perl libstaden-read1 libstatistics-descriptive-perl libstring-approx-perl libsub-exporter-perl libsub-exporter-progressive-perl libsub-identify-perl libsub-install-perl libsvg-graph-perl libsvg-perl libtask-weaken-perl libterm-readkey-perl libthai-data libthai0 libtie-ixhash-perl libtiff5 libtree-dagnode-perl libtry-tiny-perl libunicode-map-perl liburi-perl libvariable-magic-perl libvm-ec2-perl libvpx1 libwww-perl libwww-robotrules-perl libxaw7 libxcb-render0 libxcb-shm0 libxft2 libxml-dom-perl libxml-dom-xpath-perl libxml-filter-buffertext-perl libxml-libxml-perl libxml-libxslt-perl libxml-namespacesupport-perl libxml-parser-perl libxml-perl libxml-regexp-perl libxml-sax-base-perl libxml-sax-expat-perl libxml-sax-perl libxml-sax-writer-perl libxml-simple-perl libxml-twig-perl libxml-writer-perl libxml-xpath-perl libxml-xpathengine-perl libxmlrpc-lite-perl libxmu6 libxpm4 libxrender1 libxslt1.1 libxt6 libyaml-libyaml-perl libyaml-perl lynx lynx-cur mafft maq muscle mysql-common ncbi-data perl-doc perl-tk phyml poppler-data primer3 probalign probcons ruby ruby1.9.1 samtools sim4 sqlite3 ssl-cert t-coffee tigr-glimmer tm-align wise wise-data x11-common
+
+sudo apt-get install libnet-openid-consumer-perl libnet-smtp-ssl-perl make
+sudo apt-get install libbio-chado-schema-perl
+sudo apt-get install postgresql postgresql-client postgresql-plperl-9.1 postgis
+
+sudo su - postgres
+createuser -s ubuntu
+vi /etc/postgresql/9.3/main/pg_hba.conf
+#make local connections "trust"
+#not secure, should change back before using in production
+
+sudo /etc/init.d/postgresql restart
+
+sudo apt-get install xsltproc libgo-perl libdbix-dbschema-perl libdbix-dbstag-perl
+
+vi ~/.bashrc
+----------------------
+export GMOD_ROOT=/usr/local/gmod
+export CHADO_DB_NAME=drupal
+----------------------
+. ~/.bashrc
+
+cpan
+cpan>install Bio::Graphics
+cpan>install Parse::Apache::ServerStatus
+
+sudo apt-get install unzip libpng-dev libssl-dev
+
+mkdir sources
+cd sources
+wget http://hgdownload.cse.ucsc.edu/admin/jksrc.zip
+unzip jksrc.zip
+cd kent/src/lib/
+export    MACHTYPE=i686
+
+make  #after adding CFLAGS=-fPIC to kent/src/inc/common.mk
+#wait a long time...
+
